@@ -1,13 +1,37 @@
+import Image from "next/image";
 import Glyph from "./Glyph";
 import type { App } from "@/lib/apps";
 
 type AppIconProps = {
-  app: Pick<App, "name" | "glyph" | "accent">;
+  app: Pick<App, "name" | "glyph" | "accent" | "iconSrc">;
   size?: number;
   className?: string;
 };
 
 export default function AppIcon({ app, size = 64, className }: AppIconProps) {
+  // Real app icon (square art) — render it in a squircle mask.
+  if (app.iconSrc) {
+    return (
+      <span
+        className={`relative inline-block squircle overflow-hidden ${className ?? ""}`}
+        style={{
+          width: size,
+          height: size,
+          boxShadow: `inset 0 0 0 1px rgba(8,35,26,0.06), 0 14px 30px -12px ${app.accent.to}aa`,
+        }}
+      >
+        <Image
+          src={app.iconSrc}
+          alt={`${app.name} icon`}
+          width={size}
+          height={size}
+          className="h-full w-full object-cover"
+        />
+      </span>
+    );
+  }
+
+  // Generated fallback icon: mint gradient squircle + glyph.
   return (
     <span
       className={`relative inline-grid place-items-center squircle ${className ?? ""}`}

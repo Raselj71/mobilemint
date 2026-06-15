@@ -87,7 +87,12 @@ export default function AppDetailPage({ params }: { params: { slug: string } }) 
 
             <Reveal delay={0.16} className="hidden justify-self-center lg:block">
               <div className="animate-float">
-                <PhoneMockup accent={app.accent} screen={app.screens[0]} />
+                <PhoneMockup
+                  accent={app.accent}
+                  screen={app.screens[0]}
+                  image={app.screenshots?.[0]}
+                  alt={`${app.name} screenshot`}
+                />
               </div>
             </Reveal>
           </div>
@@ -125,12 +130,18 @@ export default function AppDetailPage({ params }: { params: { slug: string } }) 
             <h2 className="font-display text-2xl font-semibold text-ink">Take a look</h2>
           </Reveal>
         </div>
-        <div className="mt-8 flex snap-x gap-6 overflow-x-auto px-6 pb-8 sm:justify-center sm:px-8">
-          {app.screens.map((screen, i) => (
-            <Reveal key={i} delay={i * 0.08} className="snap-center">
-              <PhoneMockup accent={app.accent} screen={screen} className={i === 1 ? "sm:-mt-6" : ""} />
-            </Reveal>
-          ))}
+        <div className="mt-8 flex snap-x gap-6 overflow-x-auto px-6 pb-8 sm:px-8 lg:justify-center">
+          {app.screenshots
+            ? app.screenshots.map((src, i) => (
+                <Reveal key={src} delay={i * 0.06} className="snap-center">
+                  <PhoneMockup accent={app.accent} image={src} alt={`${app.name} screenshot ${i + 1}`} className={i % 2 === 1 ? "sm:-mt-6" : ""} />
+                </Reveal>
+              ))
+            : app.screens.map((screen, i) => (
+                <Reveal key={i} delay={i * 0.08} className="snap-center">
+                  <PhoneMockup accent={app.accent} screen={screen} className={i === 1 ? "sm:-mt-6" : ""} />
+                </Reveal>
+              ))}
         </div>
       </section>
 

@@ -45,8 +45,12 @@ export type App = {
   platforms: Platform[];
   /** brand accent for this app, used in icon + detail page */
   accent: { from: string; to: string; ink: string };
-  /** glyph drawn inside the squircle icon */
+  /** glyph drawn inside the squircle icon (fallback when iconSrc is absent) */
   glyph: string;
+  /** real app icon image (public path); overrides the generated glyph icon */
+  iconSrc?: string;
+  /** real Play Store screenshots (public paths); shown instead of mock screens */
+  screenshots?: string[];
   version: string;
   updated: string;
   rating?: number;
@@ -69,6 +73,7 @@ export const apps: App[] = [
     platforms: ["Android"],
     accent: { from: "#4FE0A6", to: "#1FAE76", ink: "#073D29" },
     glyph: "scan",
+    iconSrc: "/apps/pocket-scanner/icon.png",
     version: "3.2.1",
     updated: "2026-06-02",
     rating: 4.7,
@@ -122,6 +127,15 @@ export const apps: App[] = [
     platforms: ["Android"],
     accent: { from: "#34CB8C", to: "#13865B", ink: "#073D29" },
     glyph: "crescent",
+    iconSrc: "/apps/deen/icon.png",
+    screenshots: [
+      "/apps/deen/screens/02-prayer.png",
+      "/apps/deen/screens/03-quran.png",
+      "/apps/deen/screens/01-home.png",
+      "/apps/deen/screens/04-quran-audio.png",
+      "/apps/deen/screens/05-hadith.png",
+      "/apps/deen/screens/06-dua.png",
+    ],
     version: "2.0.4",
     updated: "2026-06-09",
     rating: 4.9,
@@ -174,6 +188,7 @@ export const apps: App[] = [
     platforms: ["Android"],
     accent: { from: "#7AE3B0", to: "#1FAE76", ink: "#073D29" },
     glyph: "folder",
+    iconSrc: "/apps/all-document-reader/icon.png",
     version: "1.8.0",
     updated: "2026-05-30",
     rating: 4.6,

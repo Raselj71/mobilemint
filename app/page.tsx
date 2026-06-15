@@ -90,6 +90,8 @@ export default function Home() {
               <PhoneMockup
                 accent={apps[1].accent}
                 screen={apps[1].screens[0]}
+                image={apps[1].screenshots?.[0]}
+                alt={`${apps[1].name} screenshot`}
                 className="-rotate-6"
               />
             </div>
@@ -97,6 +99,8 @@ export default function Home() {
               <PhoneMockup
                 accent={apps[0].accent}
                 screen={apps[0].screens[0]}
+                image={apps[0].screenshots?.[0]}
+                alt={`${apps[0].name} screenshot`}
                 className="-mb-10 ml-[-60px] mt-10 rotate-3 scale-110"
               />
             </div>
