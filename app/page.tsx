@@ -16,7 +16,7 @@ const principles = [
 ];
 
 const stats = [
-  { value: "150k+", label: "Installs" },
+  { value: "1.5M+", label: "Installs" },
   { value: "4.7★", label: "Avg. rating" },
   { value: `${apps.length}`, label: "Apps & counting" },
 ];
@@ -51,7 +51,7 @@ export default function Home() {
             <Reveal delay={0.12}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/65">
                 {site.name} is a small studio crafting calm, fast and privacy-respecting
-                apps for Android — from habit tracking to live radio.
+                apps for Android — from document scanning to prayer times.
               </p>
             </Reveal>
 

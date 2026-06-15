@@ -5,7 +5,7 @@ import { apps } from "@/lib/apps";
 
 export const metadata: Metadata = {
   title: "Apps",
-  description: "Browse every app from the MobileMint studio — habit tracking, live radio, shared expenses and more.",
+  description: "Browse every app from the MobileMint studio — PocketScanner, Deen, All Document Reader and more.",
 };
 
 export default function AppsPage() {

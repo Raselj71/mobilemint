@@ -3,7 +3,7 @@ export const site = {
   legalName: "MobileMint",
   tagline: "A small studio crafting apps people actually keep.",
   description:
-    "MobileMint is an independent mobile app studio building thoughtful, privacy-respecting apps for Android. Habit tracking, radio, money — made calm, fast and beautiful.",
+    "MobileMint is an independent mobile app studio building thoughtful, privacy-respecting apps for Android — document scanning, the Holy Quran and prayer times, document reading and more.",
   email: "mobilemint.dev@gmail.com",
   domain: "mobilemint.dev",
   url: "https://mobilemint.dev",
