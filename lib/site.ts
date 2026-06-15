@@ -9,8 +9,8 @@ export const site = {
   domain: "mobilemint.vercel.app",
   url: "https://mobilemint.vercel.app",
   playConsole: "MobileMint",
-  // Public Google Play developer page (placeholder until the real id is live)
-  playStoreUrl: "https://play.google.com/store/apps/dev?id=MobileMint",
+  // Public Google Play developer page
+  playStoreUrl: "https://play.google.com/store/apps/dev?id=6941996920045495645",
   social: {
     github: "https://github.com/mobilemint",
     x: "https://x.com/mobilemint",
