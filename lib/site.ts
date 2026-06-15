@@ -4,7 +4,7 @@ export const site = {
   tagline: "A small studio crafting apps people actually keep.",
   description:
     "MobileMint is an independent mobile app studio building thoughtful, privacy-respecting apps for Android — document scanning, the Holy Quran and prayer times, document reading and more.",
-  email: "mobilemint.dev@gmail.com",
+  email: "rasel.dev.cse@gmail.com",
   // Canonical host — update to your custom domain (e.g. mobilemint.dev) once it's live.
   domain: "mobilemint.vercel.app",
   url: "https://mobilemint.vercel.app",

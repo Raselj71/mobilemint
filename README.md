@@ -61,7 +61,7 @@ mockups (`components/PhoneMockup.tsx`). To use real Play Store screenshots later
 
 ## Brand
 
-Edit `lib/site.ts` for the studio name, contact email (`mobilemint.dev@gmail.com`), domain,
+Edit `lib/site.ts` for the studio name, contact email (`rasel.dev.cse@gmail.com`), domain,
 and Google Play developer URL. The mint palette lives in `tailwind.config.ts`.
 
 ## Deploying to Vercel
