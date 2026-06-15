@@ -87,20 +87,12 @@ export default function Home() {
               style={{ background: "radial-gradient(circle, rgba(79,224,166,0.45), transparent 70%)" }}
             />
             <div className="animate-float [animation-delay:-1.5s]">
-              <PhoneMockup
-                accent={apps[1].accent}
-                screen={apps[1].screens[0]}
-                image={apps[1].screenshots?.[0]}
-                alt={`${apps[1].name} screenshot`}
-                className="-rotate-6"
-              />
+              <PhoneMockup accent={apps[1].accent} screen={apps[1].screens[0]} className="-rotate-6" />
             </div>
             <div className="animate-float">
               <PhoneMockup
                 accent={apps[0].accent}
                 screen={apps[0].screens[0]}
-                image={apps[0].screenshots?.[0]}
-                alt={`${apps[0].name} screenshot`}
                 className="-mb-10 ml-[-60px] mt-10 rotate-3 scale-110"
               />
             </div>

@@ -337,28 +337,35 @@ export default function PhoneMockup({
   alt?: string;
   className?: string;
 }) {
+  // Real store/marketing screenshot — already a finished 9:16 image.
+  // Show it as a clean rounded tile (no device bezel — these often have one baked in).
+  if (image) {
+    return (
+      <div
+        className={`relative w-[230px] shrink-0 overflow-hidden rounded-[1.9rem] border border-mint-100 bg-paper shadow-[0_40px_80px_-30px_rgba(10,90,60,0.55)] ${className ?? ""}`}
+      >
+        <Image
+          src={image}
+          alt={alt ?? "App screenshot"}
+          width={230}
+          height={409}
+          className="block h-auto w-full"
+        />
+      </div>
+    );
+  }
+
+  // Generated, branded mock screen inside a stylized device frame.
   return (
     <div
       className={`relative w-[230px] shrink-0 rounded-[2.6rem] border border-white/60 bg-ink/90 p-2.5 shadow-[0_40px_80px_-30px_rgba(10,90,60,0.55)] ${className ?? ""}`}
     >
-      {image ? (
-        <div className="relative overflow-hidden rounded-[2.1rem] bg-canvas">
-          <Image
-            src={image}
-            alt={alt ?? "App screenshot"}
-            width={230}
-            height={409}
-            className="block h-auto w-full object-cover"
-          />
-        </div>
-      ) : (
-        <div className="relative overflow-hidden rounded-[2.1rem] bg-canvas pb-6">
-          {/* notch */}
-          <div className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-ink/90" />
-          <StatusBar />
-          <div className="mt-3">{screen && <ScreenBody accent={accent} screen={screen} />}</div>
-        </div>
-      )}
+      <div className="relative overflow-hidden rounded-[2.1rem] bg-canvas pb-6">
+        {/* notch */}
+        <div className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-ink/90" />
+        <StatusBar />
+        <div className="mt-3">{screen && <ScreenBody accent={accent} screen={screen} />}</div>
+      </div>
     </div>
   );
 }
