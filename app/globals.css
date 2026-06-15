@@ -1,11 +1,12 @@
-@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=switzer@400,500,600,700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Headings use the same typeface as the navbar/body (Switzer), just heavier. */
+  --font-display: "Switzer", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Switzer", ui-sans-serif, system-ui, sans-serif;
 }
 
