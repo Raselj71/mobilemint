@@ -5,8 +5,9 @@ export const site = {
   description:
     "MobileMint is an independent mobile app studio building thoughtful, privacy-respecting apps for Android — document scanning, the Holy Quran and prayer times, document reading and more.",
   email: "mobilemint.dev@gmail.com",
-  domain: "mobilemint.dev",
-  url: "https://mobilemint.dev",
+  // Canonical host — update to your custom domain (e.g. mobilemint.dev) once it's live.
+  domain: "mobilemint.vercel.app",
+  url: "https://mobilemint.vercel.app",
   playConsole: "MobileMint",
   // Public Google Play developer page (placeholder until the real id is live)
   playStoreUrl: "https://play.google.com/store/apps/dev?id=MobileMint",
