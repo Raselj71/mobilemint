@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Glyph from "@/components/Glyph";
 import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import AppCard from "@/components/AppCard";
 import PhoneMockup from "@/components/PhoneMockup";
 import { SectionHeading } from "@/components/Section";
-import StoreButton from "@/components/StoreButton";
 import { apps } from "@/lib/apps";
 import { site } from "@/lib/site";
 
@@ -16,9 +16,9 @@ const principles = [
 ];
 
 const stats = [
-  { value: "1.5M+", label: "Installs" },
-  { value: "4.7★", label: "Avg. rating" },
-  { value: `${apps.length}`, label: "Apps & counting" },
+  { value: 1.5, decimals: 1, suffix: "M+", label: "Installs" },
+  { value: 4.7, decimals: 1, suffix: "★", label: "Avg. rating" },
+  { value: apps.length, decimals: 0, suffix: "", label: "Apps & counting" },
 ];
 
 export default function Home() {
@@ -72,7 +72,14 @@ export default function Home() {
               <dl className="mt-12 flex gap-10">
                 {stats.map((s) => (
                   <div key={s.label}>
-                    <dt className="font-display text-3xl font-semibold text-ink">{s.value}</dt>
+                    <dt>
+                      <CountUp
+                        value={s.value}
+                        decimals={s.decimals}
+                        suffix={s.suffix}
+                        className="font-display text-3xl font-semibold text-ink"
+                      />
+                    </dt>
                     <dd className="mt-1 text-sm text-ink/50">{s.label}</dd>
                   </div>
                 ))}
@@ -86,16 +93,20 @@ export default function Home() {
               className="absolute h-[440px] w-[440px] rounded-full opacity-70 blur-3xl"
               style={{ background: "radial-gradient(circle, rgba(79,224,166,0.45), transparent 70%)" }}
             />
-            <div className="animate-float [animation-delay:-1.5s]">
-              <PhoneMockup accent={apps[1].accent} screen={apps[1].screens[0]} className="-rotate-6" />
-            </div>
-            <div className="animate-float">
-              <PhoneMockup
-                accent={apps[0].accent}
-                screen={apps[0].screens[0]}
-                className="-mb-10 ml-[-60px] mt-10 rotate-3 scale-110"
-              />
-            </div>
+            <Reveal delay={0.25} y={60} scale={0.88}>
+              <div className="animate-float [animation-delay:-1.5s]">
+                <PhoneMockup accent={apps[1].accent} screen={apps[1].screens[0]} className="-rotate-6" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.4} y={60} scale={0.88}>
+              <div className="animate-float">
+                <PhoneMockup
+                  accent={apps[0].accent}
+                  screen={apps[0].screens[0]}
+                  className="-mb-10 ml-[-60px] mt-10 rotate-3 scale-110"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -166,18 +177,19 @@ export default function Home() {
             <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px)", backgroundSize: "24px 24px", opacity: 0.3 }} />
             <div className="relative mx-auto max-w-2xl">
               <h2 className="font-display text-3xl font-semibold leading-tight text-white sm:text-4xl">
-                Got an app idea, or just want to say hi?
+                Got an app idea? Let&rsquo;s build it together.
               </h2>
               <p className="mt-4 text-lg text-white/85">
-                We love hearing from people who use our apps. Feedback shapes everything we ship.
+                MobileMint takes on a handful of client projects a year. If you want an app made
+                with the same care as ours, we&rsquo;d love to hear about it.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                <Link href="/contact" className="btn bg-white text-mint-700 shadow-soft hover:-translate-y-0.5 hover:bg-mint-50">
-                  Get in touch
-                  <Glyph name="mail" className="h-4 w-4" />
+                <Link href="/hire" className="btn bg-white text-mint-700 shadow-soft hover:-translate-y-0.5 hover:bg-mint-50">
+                  Hire MobileMint
+                  <Glyph name="arrow" className="h-4 w-4" />
                 </Link>
                 <Link href="/apps" className="btn border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20">
-                  Browse apps
+                  Browse the apps
                 </Link>
               </div>
             </div>

@@ -32,15 +32,25 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-ink/70 transition-colors hover:bg-mint-50 hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.label === "Hire" ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="ml-1 rounded-full border border-mint-300 bg-mint-50/70 px-4 py-2 text-sm font-semibold text-mint-700 transition-all hover:border-mint-500 hover:bg-mint-100"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full px-4 py-2 text-sm font-medium text-ink/70 transition-colors hover:bg-mint-50 hover:text-ink"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link href="/apps" className="btn-primary ml-2">
               Explore apps
               <Glyph name="arrow" className="h-4 w-4" />
