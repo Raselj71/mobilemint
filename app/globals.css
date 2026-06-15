@@ -1,0 +1,123 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=switzer@400,500,600,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Switzer", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: #1fae76;
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-ink;
+  }
+
+  /* thin mint scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #eafbf3;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #7ae3b0;
+    border: 3px solid #eafbf3;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #34cb8c;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-mint-200 bg-paper/70 px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-mint-700 backdrop-blur;
+  }
+
+  /* gradient text in the brand ramp */
+  .text-gradient {
+    background: linear-gradient(120deg, #1fae76 0%, #34cb8c 45%, #4fe0a6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-mint-100 shadow-soft hover:-translate-y-0.5 hover:bg-mint-700 hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn border border-mint-200 bg-paper/60 text-ink backdrop-blur hover:border-mint-400 hover:bg-paper;
+  }
+
+  .card {
+    @apply rounded-3xl border border-mint-100 bg-paper shadow-card;
+  }
+
+  /* squircle device / icon frame */
+  .squircle {
+    border-radius: 28%;
+  }
+}
+
+@layer utilities {
+  /* layered mint mesh-gradient atmosphere */
+  .bg-mesh {
+    background-image:
+      radial-gradient(60% 55% at 12% 8%, rgba(79, 224, 166, 0.28) 0%, transparent 60%),
+      radial-gradient(50% 50% at 92% 4%, rgba(52, 203, 140, 0.22) 0%, transparent 55%),
+      radial-gradient(55% 60% at 80% 88%, rgba(31, 174, 118, 0.18) 0%, transparent 60%),
+      radial-gradient(45% 45% at 4% 92%, rgba(168, 237, 203, 0.32) 0%, transparent 60%);
+  }
+
+  /* fine grain overlay */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+
+  /* subtle dotted grid */
+  .bg-dots {
+    background-image: radial-gradient(rgba(31, 174, 118, 0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  }
+}
