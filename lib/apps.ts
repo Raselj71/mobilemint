@@ -193,7 +193,7 @@ export const apps: App[] = [
     updated: "2026-05-30",
     rating: 4.6,
     installs: "1M+",
-    storeUrl: "https://play.google.com/store/apps/details?id=dev.mobilemint.documentreader",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.allfilereader",
     short:
       "One fast, lightweight reader for PDF, Word, Excel, PowerPoint, and text files.",
     description: [
