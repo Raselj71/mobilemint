@@ -140,7 +140,7 @@ export const apps: App[] = [
     updated: "2026-06-09",
     rating: 4.9,
     installs: "100k+",
-    storeUrl: "https://play.google.com/store/apps/details?id=dev.mobilemint.deen",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.deen",
     short:
       "Accurate prayer times, adhan reminders, the Holy Quran, and qibla — Bangla-first and offline.",
     description: [
