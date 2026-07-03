@@ -32,6 +32,17 @@ export type PrivacyData = {
   };
 };
 
+export type TermsData = {
+  /** ISO date the terms take effect */
+  effectiveDate: string;
+  /** Short plain-language summary shown at the top of the terms */
+  summary: string;
+  /** Third-party platforms the user streams to / signs into, referenced in the ToS */
+  platforms?: string[];
+  /** Whether the app is free and ad-supported (drives the fees/ads clause) */
+  adSupported?: boolean;
+};
+
 export type Feature = {
   title: string;
   body: string;
@@ -70,6 +81,8 @@ export type App = {
   features: Feature[];
   screens: Screen[];
   privacy: PrivacyData;
+  /** Optional terms of service. When present, /apps/[slug]/terms is generated. */
+  terms?: TermsData;
 };
 
 export const apps: App[] = [
@@ -305,6 +318,13 @@ export const apps: App[] = [
         ],
       },
     },
+    terms: {
+      effectiveDate: "2026-07-04",
+      summary:
+        "GoLive Studio is a tool that lets you broadcast to your own YouTube and Facebook accounts. You are responsible for the content you stream and must follow YouTube's and Facebook's own terms. The app is provided as-is and free with ads.",
+      platforms: ["YouTube", "Facebook"],
+      adSupported: true,
+    },
   },
 ];
 
@@ -314,4 +334,8 @@ export function getApp(slug: string): App | undefined {
 
 export function getAppSlugs(): string[] {
   return apps.map((a) => a.slug);
+}
+
+export function getTermsSlugs(): string[] {
+  return apps.filter((a) => a.terms).map((a) => a.slug);
 }

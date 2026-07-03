@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const appRoutes = apps.flatMap((a) => [
     { url: `${site.url}/apps/${a.slug}`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${site.url}/apps/${a.slug}/privacy`, changeFrequency: "yearly" as const, priority: 0.5 },
+    ...(a.terms
+      ? [{ url: `${site.url}/apps/${a.slug}/terms`, changeFrequency: "yearly" as const, priority: 0.5 }]
+      : []),
   ]);
 
   return [...staticRoutes, ...appRoutes];

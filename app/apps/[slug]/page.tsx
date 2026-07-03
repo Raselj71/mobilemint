@@ -70,6 +70,12 @@ export default function AppDetailPage({ params }: { params: { slug: string } }) 
                     <Glyph name="shield" className="h-4 w-4 text-mint-600" />
                     Privacy policy
                   </Link>
+                  {app.terms && (
+                    <Link href={`/apps/${app.slug}/terms`} className="btn-ghost">
+                      <Glyph name="doc" className="h-4 w-4 text-mint-600" />
+                      Terms of Service
+                    </Link>
+                  )}
                 </div>
               </Reveal>
 
