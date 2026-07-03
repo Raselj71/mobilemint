@@ -231,6 +231,61 @@ export const apps: App[] = [
       ],
     },
   },
+  {
+    slug: "golive-studio",
+    name: "GoLive Studio",
+    tagline: "Go live to YouTube and Facebook at the same time.",
+    category: "Video",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#FF7A5A", to: "#E01E4F", ink: "#3A0714" },
+    glyph: "wave",
+    iconSrc: "/apps/golive-studio/icon.svg",
+    version: "1.0.0",
+    updated: "2026-07-03",
+    short:
+      "Broadcast your camera or screen live to YouTube and Facebook at once — no computer needed.",
+    description: [
+      "GoLive Studio turns your phone into a multistreaming studio. Point your camera or share your screen and broadcast to YouTube and Facebook Live simultaneously — no laptop, capture card, or encoder required.",
+      "Sign in with your own YouTube and Facebook accounts, pick where to go live, and start streaming in a couple of taps. You stay in control of your channels and pages; GoLive Studio only sends the stream you start, when you start it.",
+    ],
+    features: [
+      { icon: "wave", title: "Multistream at once", body: "One tap sends your broadcast to YouTube and Facebook together." },
+      { icon: "split", title: "Camera or screen", body: "Go live from your camera or share whatever's on your screen." },
+      { icon: "users", title: "Your own accounts", body: "Connect your channels and pages securely — you keep full control." },
+      { icon: "bolt", title: "No computer needed", body: "A complete streaming setup that lives entirely on your phone." },
+    ],
+    screens: [
+      { kind: "player", title: "Live" },
+      { kind: "split", title: "Destinations" },
+      { kind: "stat", title: "Viewers" },
+    ],
+    privacy: {
+      lastUpdated: "2026-07-03",
+      summary:
+        "GoLive Studio streams to the YouTube and Facebook accounts you connect. We use those platforms' official sign-in to get permission to start streams on your behalf — we never see or store your passwords, and we only broadcast the streams you start. Your video is sent directly to the platforms you choose, not to us.",
+      collectsPersonalData: true,
+      accountRequired: true,
+      showsAds: true,
+      usesAnalytics: true,
+      sharesWithThirdParties: true,
+      childDirected: false,
+      dataPoints: [
+        { type: "Google / YouTube account", purpose: "Used via Google sign-in (OAuth) only to create and start live streams on your YouTube channel. We never receive your password." },
+        { type: "Facebook account", purpose: "Used via Facebook Login only to publish live videos to the pages or profile you choose. We never receive your password." },
+        { type: "Camera & microphone", purpose: "Captured only while you are live to send your audio and video to the platforms you selected. The stream is not stored by us." },
+        { type: "Screen recording", purpose: "Captured only when you choose to share your screen, and only while you are live." },
+        { type: "Advertising ID", purpose: "Used by our ad partner to show ads and limit repetition." },
+        { type: "Anonymous app diagnostics", purpose: "Crash logs and aggregated usage to improve the app.", optional: true },
+      ],
+      thirdParties: [
+        { name: "Google / YouTube (YouTube Live Streaming API)", purpose: "Sign-in and live streaming to your YouTube channel", policyUrl: "https://policies.google.com/privacy" },
+        { name: "Meta / Facebook (Facebook Login & Live API)", purpose: "Sign-in and live streaming to your Facebook pages", policyUrl: "https://www.facebook.com/policy.php" },
+        { name: "Google AdMob", purpose: "Advertising", policyUrl: "https://support.google.com/admob/answer/6128543" },
+        { name: "Google Firebase Analytics", purpose: "Aggregated usage analytics", policyUrl: "https://firebase.google.com/support/privacy" },
+      ],
+    },
+  },
 ];
 
 export function getApp(slug: string): App | undefined {

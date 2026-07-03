@@ -1,0 +1,26 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gl-bg" x1="140" y1="90" x2="900" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A5A"/>
+      <stop offset="1" stop-color="#E01E4F"/>
+    </linearGradient>
+    <radialGradient id="gl-hi" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 190) scale(560)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#gl-bg)"/>
+  <rect width="1024" height="1024" fill="url(#gl-hi)"/>
+
+  <!-- broadcast waves radiating outward (multistream) -->
+  <g stroke="#FFFFFF" stroke-linecap="round" fill="none">
+    <path d="M611 413 A 140 140 0 0 1 611 611" stroke-width="30" stroke-opacity="0.92"/>
+    <path d="M413 413 A 140 140 0 0 0 413 611" stroke-width="30" stroke-opacity="0.92"/>
+    <path d="M672 350 A 226 226 0 0 1 672 674" stroke-width="30" stroke-opacity="0.5"/>
+    <path d="M352 350 A 226 226 0 0 0 352 674" stroke-width="30" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- go-live play mark -->
+  <path d="M470 448 L470 576 L582 512 Z" fill="#FFFFFF"/>
+</svg>
