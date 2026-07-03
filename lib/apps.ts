@@ -21,6 +21,15 @@ export type PrivacyData = {
   dataPoints: DataPoint[];
   /** Named third-party processors / SDKs */
   thirdParties: { name: string; purpose: string; policyUrl: string }[];
+  /**
+   * Optional data-deletion instructions. When present, the policy renders a
+   * dedicated "Data deletion" section anchored at #data-deletion — the URL to
+   * submit as the Data Deletion Instructions URL for platforms like Meta.
+   */
+  dataDeletion?: {
+    summary: string;
+    steps: string[];
+  };
 };
 
 export type Feature = {
@@ -284,6 +293,17 @@ export const apps: App[] = [
         { name: "Google AdMob", purpose: "Advertising", policyUrl: "https://support.google.com/admob/answer/6128543" },
         { name: "Google Firebase Analytics", purpose: "Aggregated usage analytics", policyUrl: "https://firebase.google.com/support/privacy" },
       ],
+      dataDeletion: {
+        summary:
+          "GoLive Studio does not keep a server-side profile of you. The only account data it holds are the secure access tokens you grant when you connect YouTube or Facebook, which let the app start streams on your behalf. You can revoke these and delete all associated data at any time using the steps below.",
+        steps: [
+          "In GoLive Studio, open Settings → Connected accounts and tap Disconnect next to YouTube and/or Facebook. This deletes the stored access tokens from your device and requests deletion on our side.",
+          "To fully revoke Facebook access, open Facebook → Settings & privacy → Settings → Apps and websites, select \"GoLive Studio\", and tap Remove.",
+          "To fully revoke Google/YouTube access, visit https://myaccount.google.com/permissions, select \"GoLive Studio\", and tap Remove access.",
+          "Uninstalling the app removes all remaining data stored on your device.",
+          "To request deletion of any data associated with your account directly, email rasel.dev.cse@gmail.com with the subject \"Delete my data\". We will confirm and complete the deletion within 30 days.",
+        ],
+      },
     },
   },
 ];

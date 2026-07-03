@@ -175,6 +175,23 @@ export default function PrivacyPolicy({ app }: { app: App }) {
           To exercise any right, email us at the address below and we will respond within 30 days.
         </P>
 
+        {p.dataDeletion && (
+          <section id="data-deletion" className="scroll-mt-24">
+            <H>Data deletion</H>
+            <P>{p.dataDeletion.summary}</P>
+            <ol className="mt-4 space-y-3">
+              {p.dataDeletion.steps.map((step, i) => (
+                <li key={i} className="flex gap-3 rounded-2xl border border-mint-100 bg-paper p-4">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-mint-100 text-sm font-semibold text-mint-700">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm leading-relaxed text-ink/75">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
         <H>Data retention</H>
         <P>
           We keep personal information only as long as needed to provide the App and for legitimate
