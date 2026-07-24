@@ -5,6 +5,11 @@ export const site = {
   description:
     "MobileMint is an independent mobile app studio building thoughtful, privacy-respecting apps for Android — document scanning, the Holy Quran and prayer times, document reading and more.",
   email: "rasel.dev.cse@gmail.com",
+  // WhatsApp contact — international format, no "+" or spaces (used for wa.me links)
+  whatsapp: {
+    number: "8801836849353",
+    message: "Hi MobileMint 👋",
+  },
   // Canonical host — update to your custom domain (e.g. mobilemint.dev) once it's live.
   domain: "mobilemint.vercel.app",
   url: "https://mobilemint.vercel.app",
