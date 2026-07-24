@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingActions from "@/components/FloatingActions";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <FloatingActions />
       </body>
     </html>
   );

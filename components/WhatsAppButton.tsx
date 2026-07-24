@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with MobileMint on WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex items-center sm:bottom-6 sm:right-6"
+      className="group flex items-center"
     >
       {/* label that expands leftward on hover (desktop) */}
       <span className="pointer-events-none mr-0 max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold text-ink opacity-0 transition-all duration-300 group-hover:mr-3 group-hover:max-w-[12rem] group-hover:opacity-100 max-sm:hidden">
