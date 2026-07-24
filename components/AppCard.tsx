@@ -21,10 +21,14 @@ export default function AppCard({ app }: { app: App }) {
           <span className="rounded-full border border-mint-200 bg-mint-50 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-widest text-mint-700">
             Soon
           </span>
-        ) : (
+        ) : app.rating ? (
           <span className="flex items-center gap-1 rounded-full bg-mint-50 px-3 py-1 text-[0.7rem] font-semibold text-mint-700">
             <Glyph name="star" className="h-3.5 w-3.5" strokeWidth={0} fill="currentColor" />
             {app.rating}
+          </span>
+        ) : (
+          <span className="rounded-full border border-mint-200 bg-mint-50 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-widest text-mint-700">
+            New
           </span>
         )}
       </div>
@@ -37,7 +41,7 @@ export default function AppCard({ app }: { app: App }) {
 
       <div className="relative mt-6 flex items-center justify-between border-t border-mint-100 pt-4 text-sm">
         <span className="text-ink/50">
-          {app.status === "live" ? `${app.installs} installs` : "In development"}
+          {app.status === "live" ? (app.installs ? `${app.installs} installs` : "New on Google Play") : "In development"}
         </span>
         <span className="inline-flex items-center gap-1.5 font-semibold text-mint-700">
           View

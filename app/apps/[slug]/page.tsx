@@ -29,7 +29,7 @@ export default function AppDetailPage({ params }: { params: { slug: string } }) 
     { label: "Category", value: app.category },
     { label: "Platform", value: app.platforms.join(", ") },
     { label: "Version", value: app.version },
-    { label: app.status === "live" ? "Installs" : "Status", value: app.status === "live" ? app.installs! : "Coming soon" },
+    { label: app.status === "live" ? "Installs" : "Status", value: app.status === "live" ? (app.installs ?? "New") : "Coming soon" },
   ];
 
   return (
