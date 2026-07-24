@@ -95,14 +95,24 @@ export default function Home() {
             />
             <Reveal delay={0.25} y={60} scale={0.88}>
               <div className="animate-float [animation-delay:-1.5s]">
-                <PhoneMockup accent={apps[1].accent} screen={apps[1].screens[0]} className="-rotate-6" />
+                <PhoneMockup
+                  accent={apps[1].accent}
+                  image={apps[1].screenshots?.[0]}
+                  screen={apps[1].screens[0]}
+                  alt={`${apps[1].name} screenshot`}
+                  crop
+                  className="-rotate-6"
+                />
               </div>
             </Reveal>
             <Reveal delay={0.4} y={60} scale={0.88}>
               <div className="animate-float">
                 <PhoneMockup
                   accent={apps[0].accent}
+                  image={apps[0].screenshots?.[0]}
                   screen={apps[0].screens[0]}
+                  alt={`${apps[0].name} screenshot`}
+                  crop
                   className="-mb-10 ml-[-60px] mt-10 rotate-3 scale-110"
                 />
               </div>

@@ -35,8 +35,8 @@ export default function AppCard({ app }: { app: App }) {
 
       <div className="relative mt-5 flex-1">
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-mint-600">{app.category}</p>
-        <h3 className="mt-1.5 font-display text-2xl font-semibold text-ink">{app.name}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink/60">{app.short}</p>
+        <h3 className="mt-1.5 truncate font-display text-2xl font-semibold text-ink">{app.name}</h3>
+        <p className="mt-2 line-clamp-2 min-h-[2.85rem] text-sm leading-relaxed text-ink/60">{app.short}</p>
       </div>
 
       <div className="relative mt-6 flex items-center justify-between border-t border-mint-100 pt-4 text-sm">

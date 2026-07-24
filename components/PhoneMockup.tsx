@@ -329,6 +329,7 @@ export default function PhoneMockup({
   image,
   alt,
   className,
+  crop,
 }: {
   accent: Accent;
   screen?: Screen;
@@ -336,20 +337,23 @@ export default function PhoneMockup({
   image?: string;
   alt?: string;
   className?: string;
+  /** lock the tile to a fixed 9:16 height so every card is the same size,
+   *  cropping (top-anchored) any screenshot that isn't exactly 9:16 */
+  crop?: boolean;
 }) {
   // Real store/marketing screenshot — already a finished 9:16 image.
   // Show it as a clean rounded tile (no device bezel — these often have one baked in).
   if (image) {
     return (
       <div
-        className={`relative w-[230px] shrink-0 overflow-hidden rounded-[1.9rem] border border-mint-100 bg-paper shadow-[0_40px_80px_-30px_rgba(10,90,60,0.55)] ${className ?? ""}`}
+        className={`relative w-[230px] shrink-0 overflow-hidden rounded-[1.9rem] border border-mint-100 bg-paper shadow-[0_40px_80px_-30px_rgba(10,90,60,0.55)] ${crop ? "aspect-[9/16]" : ""} ${className ?? ""}`}
       >
         <Image
           src={image}
           alt={alt ?? "App screenshot"}
           width={230}
           height={409}
-          className="block h-auto w-full"
+          className={crop ? "h-full w-full object-cover object-top" : "block h-auto w-full"}
         />
       </div>
     );
