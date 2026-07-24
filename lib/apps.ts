@@ -378,6 +378,57 @@ export const apps: App[] = [
       thirdParties: [],
     },
   },
+  {
+    slug: "cards-29",
+    name: "Cards 29",
+    tagline: "The classic Twenty-Nine card game — offline or online.",
+    category: "Games",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#F6C445", to: "#C6820F", ink: "#3A2606" },
+    glyph: "star",
+    iconSrc: "/apps/cards-29/icon.png",
+    version: "1.0.0",
+    updated: "2026-07-20",
+    short:
+      "Play Twenty-Nine (29), the 4-player trick-taking card game — solo against smart bots or online with friends.",
+    description: [
+      "Cards 29 brings the beloved Twenty-Nine card game to your phone. Deal the cards, bid from 16 to 28, call your trump, and take tricks with your partner across the table — the first team to swing the match score to +6 takes the game.",
+      "Play a quick offline round against three skilled bots, or jump online, create a room, and play 29 with friends in real time. A clean green-felt table, smooth animations, and rules faithful to how Twenty-Nine is really played.",
+    ],
+    features: [
+      { icon: "users", title: "Partner play", body: "The authentic 4-player game — you and your partner versus the other team." },
+      { icon: "spark", title: "Smart bots", body: "Sharpen your play offline against bots that bid, pick trump, and play to win." },
+      { icon: "globe", title: "Online multiplayer", body: "Create or join a room and play a full game of 29 with friends in real time." },
+      { icon: "star", title: "Real 29 rules", body: "Bid 16 to 28, call your trump, win tricks, and race to a +6 match victory." },
+    ],
+    screens: [
+      { kind: "stat", title: "Match" },
+      { kind: "split", title: "Scoreboard" },
+    ],
+    privacy: {
+      lastUpdated: "2026-07-20",
+      summary:
+        "Cards 29 is free to play and supported by ads. You can play offline with no account at all; online multiplayer signs you in anonymously and uses a nickname you choose. We don't collect your name, email, or contacts.",
+      collectsPersonalData: false,
+      accountRequired: false,
+      showsAds: true,
+      usesAnalytics: true,
+      sharesWithThirdParties: true,
+      childDirected: false,
+      dataPoints: [
+        { type: "Display name", purpose: "The nickname you choose for online play, shown to others in your room. Optional — offline play needs nothing.", optional: true },
+        { type: "Online game data", purpose: "When you play online, room codes and game moves are synced so all players stay in sync. Not tied to a personal profile." },
+        { type: "Advertising ID", purpose: "Used by our ad partners to show ads and limit how often you see the same one." },
+        { type: "Anonymous app diagnostics", purpose: "Crash logs and aggregated, anonymous usage to improve the game.", optional: true },
+      ],
+      thirdParties: [
+        { name: "Google AdMob", purpose: "Advertising", policyUrl: "https://support.google.com/admob/answer/6128543" },
+        { name: "Meta Audience Network", purpose: "Advertising", policyUrl: "https://www.facebook.com/about/privacy" },
+        { name: "Google Firebase", purpose: "Anonymous analytics, crash reporting & online multiplayer", policyUrl: "https://firebase.google.com/support/privacy" },
+      ],
+    },
+  },
 ];
 
 export function getApp(slug: string): App | undefined {
