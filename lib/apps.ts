@@ -333,6 +333,51 @@ export const apps: App[] = [
       adSupported: true,
     },
   },
+  {
+    slug: "metro-buddy",
+    name: "Metro Buddy",
+    tagline: "Tap your Dhaka metro card, see your balance instantly.",
+    category: "Navigation",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#37D67A", to: "#00A651", ink: "#04321D" },
+    glyph: "compass",
+    iconSrc: "/apps/metro-buddy/icon.png",
+    version: "1.0.0",
+    updated: "2026-07-20",
+    short:
+      "Check your Dhaka MRT Pass or Rapid Pass balance and trips in a tap — 100% offline.",
+    description: [
+      "Metro Buddy lets you check your Dhaka Metro Rail MRT Pass or Rapid Pass balance and trip history in seconds — just tap the card to the back of your phone. No internet, no account, no waiting at the station machine.",
+      "See recent journeys with station in and out, fares, and balance after each trip, plus monthly spending stats and an interactive MRT Line 6 fare map. Everything runs fully offline and read-only — Metro Buddy can only read your card, never change it. Bangla-first, with an English toggle and a beautiful dark mode.",
+    ],
+    features: [
+      { icon: "scan", title: "Instant balance", body: "Tap your MRT or Rapid Pass to the back of your phone and your balance appears at once." },
+      { icon: "chart", title: "Trips & spending", body: "Recent journeys with station in/out and fares, plus monthly spend and travel stats." },
+      { icon: "compass", title: "Fares & route map", body: "An interactive MRT Line 6 map showing the fare between any two stations." },
+      { icon: "lock", title: "Private & offline", body: "Works 100% offline and read-only — no account, no ads, and nothing leaves your phone." },
+    ],
+    screens: [
+      { kind: "stat", title: "This month" },
+      { kind: "scan", title: "Tap card" },
+    ],
+    privacy: {
+      lastUpdated: "2026-07-20",
+      summary:
+        "Metro Buddy is 100% offline and read-only. It reads your MRT / Rapid Pass card on your device only — there is no account, no ads, no analytics, and nothing ever leaves your phone.",
+      collectsPersonalData: false,
+      accountRequired: false,
+      showsAds: false,
+      usesAnalytics: false,
+      sharesWithThirdParties: false,
+      childDirected: false,
+      dataPoints: [
+        { type: "NFC card reading", purpose: "Used only to read your transit card's balance and recent trips when you tap it. The app can read the card but never modify it." },
+        { type: "Card data (on device)", purpose: "Balances, trips, and nicknames are stored locally on your device so you can view them later. They are never uploaded." },
+      ],
+      thirdParties: [],
+    },
+  },
 ];
 
 export function getApp(slug: string): App | undefined {
