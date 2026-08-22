@@ -338,13 +338,14 @@ export const apps: App[] = [
     name: "Metro Buddy",
     tagline: "Tap your Dhaka metro card, see your balance instantly.",
     category: "Navigation",
-    status: "coming-soon",
+    status: "live",
     platforms: ["Android"],
     accent: { from: "#37D67A", to: "#00A651", ink: "#04321D" },
     glyph: "compass",
     iconSrc: "/apps/metro-buddy/icon.png",
     version: "1.0.0",
-    updated: "2026-07-20",
+    updated: "2026-08-22",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.metrobuddy",
     short:
       "Check your Dhaka MRT Pass or Rapid Pass balance and trips in a tap — 100% offline.",
     description: [
