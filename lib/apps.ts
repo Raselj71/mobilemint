@@ -261,6 +261,72 @@ export const apps: App[] = [
     },
   },
   {
+    slug: "voice-recorder",
+    name: "Voice Recorder",
+    tagline: "A serious recorder that never sends your audio anywhere.",
+    category: "Tools",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#6E8EF5", to: "#2F49C4", ink: "#0A1330" },
+    glyph: "wave",
+    version: "1.0.0",
+    updated: "2026-08-29",
+    short:
+      "Record meetings, lectures, and ideas in high quality — with on-device transcription and nothing uploaded.",
+    description: [
+      "Voice Recorder is built for the recordings you cannot afford to lose. It captures through a foreground service, so the recording keeps running when you switch apps or lock the screen, and it handles interruptions properly — an incoming call pauses the capture and resumes it afterwards instead of silently ending it.",
+      "Everything happens on your phone. Recordings are written straight to your device's storage, transcription runs locally on the device rather than on a server, and no account is ever required. The app is free and ad-supported, and Pro removes every ad and unlocks transcription, markers, capture settings, and batch export.",
+    ],
+    features: [
+      { icon: "wave", title: "Reliable capture", body: "Records through screen-off and app switches, and pauses for calls instead of losing the take." },
+      { icon: "doc", title: "On-device transcription", body: "Turn a recording into searchable text on the phone — the audio is never uploaded to transcribe it." },
+      { icon: "bolt", title: "Markers", body: "Drop a bookmark mid-recording and jump straight back to that moment later." },
+      { icon: "lock", title: "Stays on device", body: "Your recordings are stored locally. We have no server and never receive them." },
+    ],
+    screens: [
+      { kind: "list", title: "Recordings" },
+      { kind: "player", title: "Team meeting" },
+    ],
+    privacy: {
+      lastUpdated: "2026-08-29",
+      summary:
+        "Voice Recorder records and stores your audio entirely on your device — we have no server, and your recordings are never uploaded to us or to anyone else. Transcription also runs on the phone. No account is required. The app is free and supported by ads, and Pro removes them; the only data shared with a partner is the advertising identifier used to serve those ads.",
+      collectsPersonalData: false,
+      accountRequired: false,
+      showsAds: true,
+      usesAnalytics: false,
+      sharesWithThirdParties: true,
+      childDirected: false,
+      dataPoints: [
+        { type: "Microphone", purpose: "Used only while you are recording, to capture audio. The audio is written directly to your device and is never transmitted to us." },
+        { type: "Audio recordings & files", purpose: "Your recordings are stored locally on your device. They leave the phone only when you yourself share or export one." },
+        { type: "Advertising ID", purpose: "Used by our ad partner to display ads and limit how often the same ad repeats. It is not linked to your identity and never to the contents of your recordings. Pro removes ads.", optional: true },
+        { type: "Purchase status", purpose: "Google Play tells the app whether you have an active Pro subscription so it can unlock Pro features. We never see or store your payment details." },
+        { type: "Notifications", purpose: "Used to show the recording controls and elapsed time while a recording is running in the background." },
+      ],
+      thirdParties: [
+        { name: "Google AdMob", purpose: "Advertising", policyUrl: "https://support.google.com/admob/answer/6128543" },
+        { name: "Google Play Billing", purpose: "Processing the Pro subscription", policyUrl: "https://policies.google.com/privacy" },
+      ],
+      dataDeletion: {
+        summary:
+          "Because Voice Recorder stores everything on your device and we hold no copy of your data, deleting it is entirely in your hands — there is no account for us to erase and no server-side record to request.",
+        steps: [
+          "Delete an individual recording from the recordings list in the app.",
+          "To remove everything at once, uninstall the app, or go to Android Settings → Apps → Voice Recorder → Storage → Clear storage. This permanently deletes all recordings and transcripts held by the app.",
+          "Recordings you previously exported or shared elsewhere (for example to Drive or a messaging app) are outside the app and must be deleted there.",
+          "To reset advertising personalisation, use Android Settings → Privacy → Ads. In the EEA and the UK you can also change or withdraw your ad consent at any time from the app's own privacy options.",
+        ],
+      },
+    },
+    terms: {
+      effectiveDate: "2026-08-29",
+      summary:
+        "Voice Recorder is a tool for recording your own audio. You are responsible for what you record, and for complying with the recording-consent laws that apply where you are — in many places recording a conversation without the other party's consent is illegal. The app is provided as-is, free with ads, and offers an optional Pro subscription billed through Google Play.",
+      adSupported: true,
+    },
+  },
+  {
     slug: "golive-studio",
     name: "GoLive Studio",
     tagline: "Go live to YouTube and Facebook at the same time.",
