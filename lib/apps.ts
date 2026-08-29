@@ -460,16 +460,16 @@ export const apps: App[] = [
     version: "0.1.0",
     updated: "2026-08-29",
     short:
-      "Check your Suica, PASMO, or ICOCA balance and ride history in a tap — fully offline.",
+      "Check your Suica, PASMO, or ICOCA balance and ride history in a tap — your card data never leaves your phone.",
     description: [
       "Hold your Japanese transit IC card to the back of your phone and your balance appears at once — no internet, no account, no queue at the station machine. Suica, PASMO, ICOCA, and the other cards on the same network all work.",
-      "Your card only remembers its last 20 journeys. This app remembers every one it has ever seen, so your history keeps growing long after the card has forgotten. Each trip shows the stations you entered and left by name, the fare, and the balance you were left with. Japanese first, with English available, and it works entirely offline — the app can read your card but can never change it.",
+      "Your card only remembers its last 20 journeys. This app remembers every one it has ever seen, so your history keeps growing long after the card has forgotten. Each trip shows the stations you entered and left by name, the fare, and the balance you were left with. Japanese first, with English available. Reading your card needs no internet at all, and the app can read your card but can never change it.",
     ],
     features: [
       { icon: "scan", title: "Instant balance", body: "Hold your Suica, PASMO, or ICOCA to the back of your phone and the balance appears at once." },
       { icon: "chart", title: "History that outlasts the card", body: "The card keeps 20 journeys; the app keeps every one it has seen, building a history the card itself cannot hold." },
       { icon: "compass", title: "Real station names", body: "Trips show the stations you entered and left by name — and an honest \"unknown\" when a code is not in the table, never a guess." },
-      { icon: "lock", title: "Offline and read-only", body: "No account and no server. Your card data stays on your phone, and the app can never write to your card." },
+      { icon: "lock", title: "Your card stays yours", body: "No account. Your balance and journeys are stored on your phone and never uploaded, and the app can never write to your card." },
     ],
     screens: [
       { kind: "scan", title: "Tap card" },
@@ -478,17 +478,20 @@ export const apps: App[] = [
     privacy: {
       lastUpdated: "2026-08-29",
       summary:
-        "The app works fully offline and read-only — your card is read on your device, and your balance and trips are stored only on your phone. There is no account and no server. The app is free and supported by ads, so Google AdMob receives the limited data it needs to show them.",
+        "Your card is read on your device, and your balance and trips are stored only on your phone — that data is never uploaded. There is no account. The app is free and ad-supported, and it reports anonymous usage and crash information to Google Firebase so we can see what breaks and what gets used.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
-      usesAnalytics: false,
+      usesAnalytics: true,
       sharesWithThirdParties: true,
       childDirected: false,
       dataPoints: [
         { type: "NFC card reading", purpose: "Used only to read your transit card's balance and stored journeys when you hold it to your phone. The app can read the card but never modify it, and it cannot add balance." },
         { type: "Card data (on device)", purpose: "Balances, journeys, and any nickname you give a card are saved locally on your phone so your history outlives the card's own 20-journey limit. They are never uploaded, and you can erase them at any time in Settings." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us — we never receive it." },
+        { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded and how many journeys it found, that a scan failed and why, that a card was renamed, that the language was changed. Never your balance, your stations, your card number or a nickname: no card data is included in any event." },
+        { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, OS version, app version and a stack trace are sent so the fault can be found and fixed." },
+        { type: "Push notification token", purpose: "A device token from Firebase Cloud Messaging, used only to deliver app notices. You are asked for permission first, and the app works normally if you decline." },
       ],
       thirdParties: [
         {
@@ -496,10 +499,15 @@ export const apps: App[] = [
           purpose: "Shows the ads that keep the app free, and applies frequency limits so the same ad is not repeated.",
           policyUrl: "https://policies.google.com/privacy",
         },
+        {
+          name: "Google Firebase (Analytics, Crashlytics, Performance Monitoring, Cloud Messaging)",
+          purpose: "Anonymous usage counts, crash reports, performance measurements, and delivery of push notifications. No card data is ever sent.",
+          policyUrl: "https://firebase.google.com/support/privacy",
+        },
       ],
       dataDeletion: {
         summary:
-          "Everything the app stores lives on your phone alone, so deleting it is immediate and needs no request to us. There is nothing on a server for us to erase.",
+          "Your card data lives on your phone alone, so erasing it is immediate and needs no request to us. Anonymous usage and crash reports held by Firebase are not tied to your identity; uninstalling stops any further reporting, and you can ask us to purge what has already been collected.",
         steps: [
           "Open the app and go to the Settings tab.",
           "Under Data, tap \"Delete local data\".",
