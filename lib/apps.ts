@@ -290,11 +290,11 @@ export const apps: App[] = [
     privacy: {
       lastUpdated: "2026-08-29",
       summary:
-        "Voice Recorder records and stores your audio entirely on your device — we have no server, and your recordings are never uploaded to us or to anyone else. Transcription also runs on the phone. No account is required. The app is free and supported by ads, and Pro removes them; the only data shared with a partner is the advertising identifier used to serve those ads.",
+        "Voice Recorder records and stores your audio entirely on your device — we have no server, and your recordings are never uploaded to us or to anyone else. Transcription also runs on the phone. No account is required. The app is free and supported by ads, and Pro removes them. Ads, crash reports and anonymous usage counts go to Google; your recordings never do, and all of it stays switched off until you have answered the consent prompt.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
-      usesAnalytics: false,
+      usesAnalytics: true,
       sharesWithThirdParties: true,
       childDirected: false,
       dataPoints: [
@@ -302,10 +302,13 @@ export const apps: App[] = [
         { type: "Audio recordings & files", purpose: "Your recordings are stored locally on your device. They leave the phone only when you yourself share or export one." },
         { type: "Advertising ID", purpose: "Used by our ad partner to display ads and limit how often the same ad repeats. It is not linked to your identity and never to the contents of your recordings. Pro removes ads.", optional: true },
         { type: "Purchase status", purpose: "Google Play tells the app whether you have an active Pro subscription so it can unlock Pro features. We never see or store your payment details." },
-        { type: "Notifications", purpose: "Used to show the recording controls and elapsed time while a recording is running in the background." },
+        { type: "Notifications", purpose: "Used to show the recording controls and elapsed time while a recording is running in the background, and to deliver any notification you opt into." },
+        { type: "Crash logs & performance", purpose: "If the app crashes, where in the code it happened plus your device model and Android version. Never a recording, a title or a transcript.", optional: true },
+        { type: "Anonymous app events", purpose: "Counts such as \"a recording was started\". The list of events is fixed in the source, and event data is limited to numbers and true/false flags, so no title or transcript can be included.", optional: true },
       ],
       thirdParties: [
         { name: "Google AdMob", purpose: "Advertising", policyUrl: "https://support.google.com/admob/answer/6128543" },
+        { name: "Google Firebase", purpose: "Crash reporting, anonymous analytics, performance monitoring and notifications", policyUrl: "https://firebase.google.com/support/privacy" },
         { name: "Google Play Billing", purpose: "Processing the Pro subscription", policyUrl: "https://policies.google.com/privacy" },
       ],
       dataDeletion: {
@@ -315,7 +318,7 @@ export const apps: App[] = [
           "Delete an individual recording from the recordings list in the app.",
           "To remove everything at once, uninstall the app, or go to Android Settings → Apps → Voice Recorder → Storage → Clear storage. This permanently deletes all recordings and transcripts held by the app.",
           "Recordings you previously exported or shared elsewhere (for example to Drive or a messaging app) are outside the app and must be deleted there.",
-          "To reset advertising personalisation, use Android Settings → Privacy → Ads. In the EEA and the UK you can also change or withdraw your ad consent at any time from the app's own privacy options.",
+          "To reset advertising personalisation, use Android Settings → Privacy → Ads. In the EEA and the UK you can also change or withdraw your consent at any time from the app's own privacy options — that one answer governs advertising, crash reporting and analytics together.",
         ],
       },
     },
