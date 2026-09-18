@@ -453,12 +453,22 @@ export const apps: App[] = [
     name: "Japan Train Card Balance Check",
     tagline: "Tap your Suica or PASMO, see your balance and every trip.",
     category: "Navigation",
-    status: "coming-soon",
+    status: "live",
     platforms: ["Android"],
     accent: { from: "#16A85F", to: "#008C45", ink: "#04291A" },
     glyph: "scan",
-    version: "0.1.0",
-    updated: "2026-08-29",
+    iconSrc: "/apps/japan-train-card-balance-check/icon.png",
+    screenshots: [
+      "/apps/japan-train-card-balance-check/screens/01-tap.png",
+      "/apps/japan-train-card-balance-check/screens/02-balance.png",
+      "/apps/japan-train-card-balance-check/screens/03-trips.png",
+      "/apps/japan-train-card-balance-check/screens/04-cards.png",
+      "/apps/japan-train-card-balance-check/screens/05-privacy.png",
+    ],
+    version: "0.1.2",
+    updated: "2026-09-18",
+    storeUrl:
+      "https://play.google.com/store/apps/details?id=com.mobilemint.japantraincardbalancecheck",
     short:
       "Check your Suica, PASMO, or ICOCA balance and ride history in a tap — your card data never leaves your phone.",
     description: [
