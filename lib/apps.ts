@@ -653,6 +653,68 @@ export const apps: App[] = [
       ],
     },
   },
+  {
+    slug: "feedlock",
+    name: "FeedLock",
+    tagline: "Block Reels and Shorts. Keep the apps you need.",
+    category: "Productivity",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#1FC98E", to: "#0A6F4D", ink: "#0B0F17" },
+    glyph: "lock",
+    iconSrc: "/apps/feedlock/icon.png",
+    version: "0.0.1",
+    updated: "2026-09-30",
+    short:
+      "Stop doomscrolling: block Reels, Shorts and endless feeds without deleting the apps, with a strict mode that actually holds.",
+    description: [
+      "FeedLock closes the endless feeds and leaves the rest of the app alone. Reels, Shorts, Explore and Spotlight shut the moment they open, while messages, search, posting and normal videos keep working. Want an app gone completely? Block the whole app instead.",
+      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, no ads, and your usage never leaves your phone. In English, Español, Deutsch, Français and Português.",
+    ],
+    features: [
+      { icon: "shield", title: "Block just the feed", body: "Reels, Shorts, Explore and Spotlight close instantly; messages, search and posting keep working." },
+      { icon: "lock", title: "A strict mode that holds", body: "Sessions that can't be ended on a whim, with optional uninstall protection." },
+      { icon: "chart", title: "Screen time that changes habits", body: "Screen time by app, blocked attempts, time saved and your focus streak." },
+      { icon: "bell", title: "Schedules and daily limits", body: "Let FeedLock start strict sessions for you, overnight or when a daily limit runs out (Pro)." },
+    ],
+    screens: [
+      { kind: "stat", title: "Focus" },
+      { kind: "list", title: "Blockers" },
+    ],
+    privacy: {
+      lastUpdated: "2026-09-30",
+      summary:
+        "FeedLock works entirely on your phone. It uses Android's Accessibility service only to recognise the apps and feeds you chose to block so it can close them; it never records, stores or sends what you see or type. Your rules, sessions, screen time and stats stay on your device. There is no account and no ads. Purchases are handled by Google Play, and the app downloads a public list of feed signatures so blocking keeps working when apps change.",
+      collectsPersonalData: false,
+      accountRequired: false,
+      showsAds: false,
+      usesAnalytics: false,
+      sharesWithThirdParties: false,
+      childDirected: false,
+      dataPoints: [
+        { type: "Accessibility service", purpose: "Used only on your device to see which app is in front and whether a feed you chose to block (such as Reels or Shorts) is open, so FeedLock can close it. Screen content is never recorded, stored, logged or sent anywhere." },
+        { type: "Usage access", purpose: "Reads Android's own app-usage totals to show your screen time by app. These numbers are read and shown on your phone only and are never uploaded." },
+        { type: "Installed apps", purpose: "The list of launchable apps and their icons, so you can pick which ones to block. It stays on your phone." },
+        { type: "Rules, sessions and stats (on device)", purpose: "Your block list, schedules, daily limit, session state, blocked-attempt counts and streak are stored locally on your phone and deleted when you uninstall." },
+        { type: "Purchases", purpose: "Subscriptions and one-time unlocks are processed by Google Play. FeedLock checks your purchase on the device; we never receive your payment details." },
+        { type: "Feed signature updates", purpose: "The app periodically downloads a small, public, signed file that describes how to recognise each feed. The request contains no data about you or your usage beyond what any web request carries (such as your IP address)." },
+        { type: "Device admin (optional)", purpose: "If you turn on uninstall protection, FeedLock becomes a device admin only so it can't be removed during a strict session. It uses no admin policies: it cannot lock, wipe or monitor your device." },
+      ],
+      thirdParties: [
+        { name: "Google Play Billing", purpose: "Processes subscriptions and one-time purchases.", policyUrl: "https://policies.google.com/privacy" },
+        { name: "GitHub Pages", purpose: "Hosts the public feed-signature file the app downloads. No personal data is sent.", policyUrl: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" },
+      ],
+      dataDeletion: {
+        summary:
+          "Everything FeedLock stores lives on your phone, so deleting it is immediate and needs no request to us.",
+        steps: [
+          "If a strict session is running, wait for it to end (or use the cooldown).",
+          "If you turned on uninstall protection, switch it off in FeedLock's Shield tab.",
+          "Uninstall FeedLock. Your rules, sessions, screen-time cache and stats are removed with it.",
+        ],
+      },
+    },
+  },
 ];
 
 export function getApp(slug: string): App | undefined {
