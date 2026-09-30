@@ -669,7 +669,7 @@ export const apps: App[] = [
       "Stop doomscrolling: block Reels, Shorts and endless feeds without deleting the apps, with a strict mode that actually holds.",
     description: [
       "FeedLock closes the endless feeds and leaves the rest of the app alone. Reels, Shorts, Explore and Spotlight shut the moment they open, while messages, search, posting and normal videos keep working. Want an app gone completely? Block the whole app instead.",
-      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, no ads, and your usage never leaves your phone. In English, Español, Deutsch, Français and Português.",
+      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, no ads, and what you see, type or which apps you use is never sent. In English, Español, Deutsch, Français and Português.",
     ],
     features: [
       { icon: "shield", title: "Block just the feed", body: "Reels, Shorts, Explore and Spotlight close instantly; messages, search and posting keep working." },
@@ -682,14 +682,14 @@ export const apps: App[] = [
       { kind: "list", title: "Blockers" },
     ],
     privacy: {
-      lastUpdated: "2026-09-30",
+      lastUpdated: "2026-10-01",
       summary:
-        "FeedLock works entirely on your phone. It uses Android's Accessibility service only to recognise the apps and feeds you chose to block so it can close them; it never records, stores or sends what you see or type. Your rules, sessions, screen time and stats stay on your device. There is no account and no ads. Purchases are handled by Google Play, and the app downloads a public list of feed signatures so blocking keeps working when apps change.",
+        "FeedLock blocks feeds on your phone. It uses Android's Accessibility service only to recognise the apps and feeds you chose to block so it can close them; it never records, stores or sends what you see or type. Your rules, sessions, screen time and stats stay on your device. There is no account and no ads. The app reports anonymous crash reports, usage events and performance data to Google Firebase (usage and performance reporting can be switched off in Settings; crash reports cannot) and registers a push token so we can send announcements. No screen content, typed text or names of your apps are ever sent. Purchases are handled by Google Play, and the app downloads a public list of feed signatures so blocking keeps working when apps change.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: false,
-      usesAnalytics: false,
-      sharesWithThirdParties: false,
+      usesAnalytics: true,
+      sharesWithThirdParties: true,
       childDirected: false,
       dataPoints: [
         { type: "Accessibility service", purpose: "Used only on your device to see which app is in front and whether a feed you chose to block (such as Reels or Shorts) is open, so FeedLock can close it. Screen content is never recorded, stored, logged or sent anywhere." },
@@ -697,16 +697,20 @@ export const apps: App[] = [
         { type: "Installed apps", purpose: "The list of launchable apps and their icons, so you can pick which ones to block. It stays on your phone." },
         { type: "Rules, sessions and stats (on device)", purpose: "Your block list, schedules, daily limit, session state, blocked-attempt counts and streak are stored locally on your phone and deleted when you uninstall." },
         { type: "Purchases", purpose: "Subscriptions and one-time unlocks are processed by Google Play. FeedLock checks your purchase on the device; we never receive your payment details." },
+        { type: "Usage events", purpose: "Anonymous events such as which FeedLock screens are opened, that setup finished, which permissions were granted, whether a session was strict and roughly how long (for example 1h), why it ended, which upgrade screen was shown and whether a purchase completed. Never the content of your screen, what you type, or the names of your apps. You can switch this off in Settings > Privacy." },
+        { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, Android version, app version, app language and a stack trace are sent so the fault can be fixed, along with start-up and network timings. Crash reports are always on; performance data can be switched off in Settings > Privacy." },
+        { type: "Push token", purpose: "A Firebase Cloud Messaging token lets us send occasional announcements from the Firebase console. It identifies your installation, not you." },
         { type: "Feed signature updates", purpose: "The app periodically downloads a small, public, signed file that describes how to recognise each feed. The request contains no data about you or your usage beyond what any web request carries (such as your IP address)." },
         { type: "Device admin (optional)", purpose: "If you turn on uninstall protection, FeedLock becomes a device admin only so it can't be removed during a strict session. It uses no admin policies: it cannot lock, wipe or monitor your device." },
       ],
       thirdParties: [
         { name: "Google Play Billing", purpose: "Processes subscriptions and one-time purchases.", policyUrl: "https://policies.google.com/privacy" },
+        { name: "Google Firebase (Analytics, Crashlytics, Cloud Messaging, Performance Monitoring)", purpose: "Anonymous usage events, crash reports, performance measurements and announcement push messages. No screen content, typed text or app names are ever sent.", policyUrl: "https://firebase.google.com/support/privacy" },
         { name: "GitHub Pages", purpose: "Hosts the public feed-signature file the app downloads. No personal data is sent.", policyUrl: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" },
       ],
       dataDeletion: {
         summary:
-          "Everything FeedLock stores lives on your phone, so deleting it is immediate and needs no request to us.",
+          "Everything FeedLock stores lives on your phone, so deleting it is immediate and needs no request to us. The anonymous Firebase data is not tied to your name or an account; uninstalling stops any further reporting and Google deletes it on its normal retention schedule.",
         steps: [
           "If a strict session is running, wait for it to end (or use the cooldown).",
           "If you turned on uninstall protection, switch it off in FeedLock's Shield tab.",
