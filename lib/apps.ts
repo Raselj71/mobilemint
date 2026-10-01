@@ -262,19 +262,28 @@ export const apps: App[] = [
   },
   {
     slug: "voice-recorder",
-    name: "Voice Recorder",
+    name: "AI Voice Recorder",
     tagline: "A serious recorder that never sends your audio anywhere.",
     category: "Tools",
-    status: "coming-soon",
+    status: "live",
     platforms: ["Android"],
-    accent: { from: "#6E8EF5", to: "#2F49C4", ink: "#0A1330" },
+    accent: { from: "#7D9BD0", to: "#3D5C8D", ink: "#121419" },
     glyph: "wave",
+    iconSrc: "/apps/voice-recorder/icon.png",
+    screenshots: [
+      "/apps/voice-recorder/screens/01-record.png",
+      "/apps/voice-recorder/screens/02-library.png",
+      "/apps/voice-recorder/screens/03-player.png",
+      "/apps/voice-recorder/screens/04-settings.png",
+      "/apps/voice-recorder/screens/05-privacy.png",
+    ],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.aivoicerecorder",
     version: "1.0.0",
     updated: "2026-08-29",
     short:
       "Record meetings, lectures, and ideas in high quality — with on-device transcription and nothing uploaded.",
     description: [
-      "Voice Recorder is built for the recordings you cannot afford to lose. It captures through a foreground service, so the recording keeps running when you switch apps or lock the screen, and it handles interruptions properly — an incoming call pauses the capture and resumes it afterwards instead of silently ending it.",
+      "AI Voice Recorder is built for the recordings you cannot afford to lose. It captures through a foreground service, so the recording keeps running when you switch apps or lock the screen, and it handles interruptions properly — an incoming call pauses the capture and resumes it afterwards instead of silently ending it.",
       "Everything happens on your phone. Recordings are written straight to your device's storage, transcription runs locally on the device rather than on a server, and no account is ever required. The app is free and ad-supported, and Pro removes every ad and unlocks transcription, markers, capture settings, and batch export.",
     ],
     features: [
@@ -290,7 +299,7 @@ export const apps: App[] = [
     privacy: {
       lastUpdated: "2026-08-29",
       summary:
-        "Voice Recorder records and stores your audio entirely on your device — we have no server, and your recordings are never uploaded to us or to anyone else. Transcription also runs on the phone. No account is required. The app is free and supported by ads, and Pro removes them. Ads, crash reports and anonymous usage counts go to Google; your recordings never do, and all of it stays switched off until you have answered the consent prompt.",
+        "AI Voice Recorder records and stores your audio entirely on your device — we have no server, and your recordings are never uploaded to us or to anyone else. Transcription also runs on the phone. No account is required. The app is free and supported by ads, and Pro removes them. Ads, crash reports and anonymous usage counts go to Google; your recordings never do, and all of it stays switched off until you have answered the consent prompt.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
@@ -313,10 +322,10 @@ export const apps: App[] = [
       ],
       dataDeletion: {
         summary:
-          "Because Voice Recorder stores everything on your device and we hold no copy of your data, deleting it is entirely in your hands — there is no account for us to erase and no server-side record to request.",
+          "Because AI Voice Recorder stores everything on your device and we hold no copy of your data, deleting it is entirely in your hands — there is no account for us to erase and no server-side record to request.",
         steps: [
           "Delete an individual recording from the recordings list in the app.",
-          "To remove everything at once, uninstall the app, or go to Android Settings → Apps → Voice Recorder → Storage → Clear storage. This permanently deletes all recordings and transcripts held by the app.",
+          "To remove everything at once, uninstall the app, or go to Android Settings → Apps → AI Voice Recorder → Storage → Clear storage. This permanently deletes all recordings and transcripts held by the app.",
           "Recordings you previously exported or shared elsewhere (for example to Drive or a messaging app) are outside the app and must be deleted there.",
           "To reset advertising personalisation, use Android Settings → Privacy → Ads. In the EEA and the UK you can also change or withdraw your consent at any time from the app's own privacy options — that one answer governs advertising, crash reporting and analytics together.",
         ],
@@ -325,7 +334,7 @@ export const apps: App[] = [
     terms: {
       effectiveDate: "2026-08-29",
       summary:
-        "Voice Recorder is a tool for recording your own audio. You are responsible for what you record, and for complying with the recording-consent laws that apply where you are — in many places recording a conversation without the other party's consent is illegal. The app is provided as-is, free with ads, and offers an optional Pro subscription billed through Google Play.",
+        "AI Voice Recorder is a tool for recording your own audio. You are responsible for what you record, and for complying with the recording-consent laws that apply where you are — in many places recording a conversation without the other party's consent is illegal. The app is provided as-is, free with ads, and offers an optional Pro subscription billed through Google Play.",
       adSupported: true,
     },
   },
@@ -532,11 +541,12 @@ export const apps: App[] = [
     name: "Korea Card Balance for T-money",
     tagline: "Tap your T-money or Cashbee card, see your balance in your own currency.",
     category: "Navigation",
-    status: "coming-soon",
+    status: "live",
     platforms: ["Android"],
     accent: { from: "#288BC4", to: "#0B1F3B", ink: "#050E1D" },
     glyph: "scan",
     iconSrc: "/apps/tmoney-balance/icon.png",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.tmoneybalance",
     version: "0.1.0",
     updated: "2026-09-25",
     short:
