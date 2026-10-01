@@ -278,7 +278,7 @@ export const apps: App[] = [
       "/apps/voice-recorder/screens/05-privacy.png",
     ],
     storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.aivoicerecorder",
-    version: "1.0.0",
+    version: "0.0.1",
     updated: "2026-08-29",
     short:
       "Record meetings, lectures, and ideas in high quality — with on-device transcription and nothing uploaded.",
