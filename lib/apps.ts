@@ -628,7 +628,7 @@ export const apps: App[] = [
       "Check your Singapore transit card balance and trip history in a tap — bus rides combined, spending tracked, in 4 languages.",
     description: [
       "Hold your EZ-Link or NETS FlashPay card to the back of your phone and see what's left on it at once, in Singapore dollars and in your home currency. The app shows when the card expires and lists every trip: MRT journeys with their stations, bus rides with the fare you actually paid, and top-ups.",
-      "Your card only remembers its last 30 records; the app keeps every one it has seen, so your history keeps growing. See what you spend each week and month, your most-used routes, and roughly how long your balance will last. Get a reminder before the card expires, and export your history as a CSV file for expense claims. English, 简体中文, বাংলা and Bahasa Melayu. Reading your card needs no internet, and the app can never change it. Unofficial — not affiliated with EZ-Link, SimplyGo, NETS or LTA.",
+      "Your card only remembers its last 30 records; the app keeps every one it has seen, so your history keeps growing. See what you spend each week and month, your most-used routes, and roughly how long your balance will last. Get a reminder before the card expires, and export your history as a CSV file for expense claims. The app is free with ads; a one-time purchase removes them for life. English, 简体中文, বাংলা and Bahasa Melayu. Reading your card needs no internet, and the app can never change it. Unofficial — not affiliated with EZ-Link, SimplyGo, NETS or LTA.",
     ],
     features: [
       { icon: "scan", title: "Instant balance", body: "Tap an EZ-Link or NETS FlashPay card and see the balance in Singapore dollars and your own currency." },
@@ -655,6 +655,7 @@ export const apps: App[] = [
         { type: "Card data (on device)", purpose: "Balances, records, and any nickname you give a card are saved locally on your phone so your history outlives the card's own 30-record limit. They are never uploaded, and you can erase them at any time in Settings." },
         { type: "Expiry reminder (optional)", purpose: "If you switch it on, the app asks for notification permission and schedules one notification on your phone for 30 days before your card expires. It is created and delivered locally on the device; there is no push service and nothing is sent to us." },
         { type: "History export (optional)", purpose: "When you tap Export, the app writes your saved records to a temporary CSV file on your phone and opens Android's share sheet so you can choose where it goes. The file goes only to the app you pick; we never receive it." },
+        { type: "Purchase status (optional)", purpose: "The app is free and ad-supported. You can pay once to remove ads for life. The payment is handled entirely by Google Play, so we never see your card or payment details. The app only asks Google Play whether this Google account owns the purchase, and keeps a note on your phone so ads stay off." },
         { type: "Exchange rates", purpose: "Once a day the app downloads public currency exchange rates to show your balance in your home currency. The request contains no card data and nothing about you beyond what any web request carries (such as your IP address)." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us — we never receive it." },
         { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded, that a scan failed and why, that a card was renamed, that history was exported, that the language or currency was changed. Never your balance, your card number, your records or a nickname: no card data is included in any event." },
@@ -672,6 +673,11 @@ export const apps: App[] = [
           policyUrl: "https://firebase.google.com/support/privacy",
         },
         {
+          name: "Google Play Billing",
+          purpose: "Processes the optional one-time purchase that removes ads and tells the app whether you own it. We receive no payment details.",
+          policyUrl: "https://policies.google.com/privacy",
+        },
+        {
           name: "ExchangeRate-API (open.er-api.com)",
           purpose: "Supplies the daily currency exchange rates used to convert your balance. No card or personal data is sent.",
           policyUrl: "https://www.exchangerate-api.com/terms",
@@ -683,7 +689,7 @@ export const apps: App[] = [
         steps: [
           "Open the app and go to the Settings tab.",
           "Under Data, tap \"Delete local data\".",
-          "Confirm. Every saved card, its nickname, its stored history, any scheduled expiry reminders and the cached exchange rates are removed from the phone straight away.",
+          "Confirm. Every saved card, its nickname, its stored history, any scheduled expiry reminders and the cached exchange rates are removed from the phone straight away. A purchase is tied to your Google account, not to this data, and can be restored at any time.",
           "To remove everything at once instead, uninstall the app — all of its local data goes with it.",
         ],
       },
