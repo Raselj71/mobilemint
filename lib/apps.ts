@@ -614,7 +614,7 @@ export const apps: App[] = [
   },
   {
     slug: "sg-card-balance",
-    name: "SG Card Balance",
+    name: "Singapore MRT Bus Card Balance",
     tagline: "Tap your EZ-Link or NETS FlashPay card, see your balance and every trip.",
     category: "Navigation",
     status: "coming-soon",
