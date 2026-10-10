@@ -631,13 +631,14 @@ export const apps: App[] = [
       "/apps/sg-card-balance/screens/06-settings.png",
     ],
     storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.sgcardbalance",
-    version: "1.0.0",
-    updated: "2026-10-05",
+    version: "1.1.0",
+    updated: "2026-10-10",
     short:
       "Check your Singapore transit card balance and trip history in a tap — bus rides combined, spending tracked, in 4 languages.",
     description: [
       "Hold your EZ-Link or NETS FlashPay card to the back of your phone and see what's left on it at once, in Singapore dollars and in your home currency. The app shows when the card expires and lists every trip: MRT journeys with their stations, bus rides with the fare you actually paid, and top-ups.",
       "Your card only remembers its last 30 records; the app keeps every one it has seen, so your history keeps growing. See what you spend each week and month, your most-used routes, and roughly how long your balance will last. Get a reminder before the card expires, and export your history as a CSV file for expense claims. The app is free with ads; a one-time purchase removes them for life. English, 简体中文, বাংলা and Bahasa Melayu. Reading your card needs no internet, and the app can never change it. Unofficial — not affiliated with EZ-Link, SimplyGo, NETS or LTA.",
+      "A street map of the MRT and LRT network shows each station's exits, how crowded it is right now, its first and last train and how often trains come, and plans a trip between two stations with the scheduled time on the train. A bus view lists every bus stop with live arrival times for each service. The map and the live information need an internet connection; train times, exits and bus stops are from the Land Transport Authority.",
     ],
     features: [
       { icon: "scan", title: "Instant balance", body: "Tap an EZ-Link or NETS FlashPay card and see the balance in Singapore dollars and your own currency." },
@@ -650,9 +651,9 @@ export const apps: App[] = [
       { kind: "list", title: "Trips" },
     ],
     privacy: {
-      lastUpdated: "2026-10-03",
+      lastUpdated: "2026-10-10",
       summary:
-        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day, is free and ad-supported, and reports anonymous usage and crash information to Google Firebase so we can see what breaks and what gets used.",
+        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day. The street map loads map tiles from OpenFreeMap, and when you open a station or a bus stop it asks the Land Transport Authority for live crowd levels and bus arrival times; these requests contain no card data and no account, and the app never uses your phone's location. The app is free and ad-supported, and reports anonymous usage and crash information to Google Firebase so we can see what breaks and what gets used.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
@@ -666,8 +667,10 @@ export const apps: App[] = [
         { type: "History export (optional)", purpose: "When you tap Export, the app writes your saved records to a temporary CSV file on your phone and opens Android's share sheet so you can choose where it goes. The file goes only to the app you pick; we never receive it." },
         { type: "Purchase status (optional)", purpose: "The app is free and ad-supported. You can pay once to remove ads for life. The payment is handled entirely by Google Play, so we never see your card or payment details. The app only asks Google Play whether this Google account owns the purchase, and keeps a note on your phone so ads stay off." },
         { type: "Exchange rates", purpose: "Once a day the app downloads public currency exchange rates to show your balance in your home currency. The request contains no card data and nothing about you beyond what any web request carries (such as your IP address)." },
+        { type: "Street map", purpose: "The map loads map tiles from OpenFreeMap as you pan and zoom. Each request carries the part of the map being shown and, like any web request, your IP address. It carries no card data and no account. The app does not ask for or use your phone's location. Station, exit, timetable and bus stop information is stored inside the app, so searching and planning a trip run on your phone." },
+        { type: "Live station and bus information", purpose: "When you open a station card, a bus stop card or the bus view, the app asks the Land Transport Authority's DataMall for that line's crowd levels or that bus stop's arrival times. The request names only the line or the bus stop and carries your IP address; nothing about you or your card is sent. It is asked for once and refreshed while the card stays open." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us — we never receive it." },
-        { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded, that a scan failed and why, that a card was renamed, that history was exported, that the language or currency was changed. Never your balance, your card number, your records or a nickname: no card data is included in any event." },
+        { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded, that a scan failed and why, that a card was renamed, that history was exported, that the language or currency was changed, which screens such as the map or a guide topic were opened. Never your balance, your card number, your records or a nickname: no card data is included in any event." },
         { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, OS version, app version and a stack trace are sent so the fault can be found and fixed." },
       ],
       thirdParties: [
@@ -690,6 +693,16 @@ export const apps: App[] = [
           name: "ExchangeRate-API (open.er-api.com)",
           purpose: "Supplies the daily currency exchange rates used to convert your balance. No card or personal data is sent.",
           policyUrl: "https://www.exchangerate-api.com/terms",
+        },
+        {
+          name: "OpenFreeMap",
+          purpose: "Supplies the map tiles for the street map. Its privacy policy says it has no user accounts, uses no cookies or tracking, and does not store IP addresses in its normal access logs. Map data is © OpenStreetMap contributors.",
+          policyUrl: "https://openfreemap.org/privacy/",
+        },
+        {
+          name: "Land Transport Authority (LTA DataMall)",
+          purpose: "Supplies the live station crowd levels and bus arrival times shown on the map. Only the line or the bus stop being viewed is sent; no card or personal data.",
+          policyUrl: "https://www.lta.gov.sg/content/ltagov/en/privacy-statement.html",
         },
       ],
       dataDeletion: {
