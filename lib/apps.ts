@@ -651,9 +651,9 @@ export const apps: App[] = [
       { kind: "list", title: "Trips" },
     ],
     privacy: {
-      lastUpdated: "2026-10-10",
+      lastUpdated: "2026-10-11",
       summary:
-        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day. The street map loads map tiles from OpenFreeMap, and when you open a station or a bus stop it asks the Land Transport Authority for live crowd levels and bus arrival times; these requests contain no card data and no account, and the app never uses your phone's location. The app is free and ad-supported, and reports anonymous usage and crash information to Google Firebase so we can see what breaks and what gets used.",
+        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day. The street map loads map tiles from OpenFreeMap, and when you open a station or a bus stop it asks the Land Transport Authority for live crowd levels, bus arrival times, train service alerts and lift outages; these requests contain no card data and no account. When the map opens, and when you tap the Near me button, the app reads your phone's location (only while the app is open, and only if you allow it) to show where you are and the closest stations and bus stops; your location stays on your phone and is never sent to us, stored or shared. The stations and bus stops you save are kept on your phone only. If you switch on train disruption alerts in Settings, the app checks the Land Transport Authority in the background about every 15 minutes and sends you a notification on your phone. The app is free and ad-supported, and uses Google Firebase to report anonymous usage and crash information, and to be able to send you messages from us.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
@@ -663,12 +663,16 @@ export const apps: App[] = [
       dataPoints: [
         { type: "NFC card reading", purpose: "Used only to read your transit card's balance, expiry and stored records when you hold it to your phone. The app can read the card but never modify it, and it cannot add balance." },
         { type: "Card data (on device)", purpose: "Balances, records, and any nickname you give a card are saved locally on your phone so your history outlives the card's own 30-record limit. They are never uploaded, and you can erase them at any time in Settings." },
-        { type: "Expiry reminder (optional)", purpose: "If you switch it on, the app asks for notification permission and schedules one notification on your phone for 30 days before your card expires. It is created and delivered locally on the device; there is no push service and nothing is sent to us." },
+        { type: "Expiry reminder (optional)", purpose: "If you switch it on, the app asks for notification permission and schedules one notification on your phone for 30 days before your card expires. It is created and delivered locally on the device; nothing is sent to us." },
         { type: "History export (optional)", purpose: "When you tap Export, the app writes your saved records to a temporary CSV file on your phone and opens Android's share sheet so you can choose where it goes. The file goes only to the app you pick; we never receive it." },
         { type: "Purchase status (optional)", purpose: "The app is free and ad-supported. You can pay once to remove ads for life. The payment is handled entirely by Google Play, so we never see your card or payment details. The app only asks Google Play whether this Google account owns the purchase, and keeps a note on your phone so ads stay off." },
         { type: "Exchange rates", purpose: "Once a day the app downloads public currency exchange rates to show your balance in your home currency. The request contains no card data and nothing about you beyond what any web request carries (such as your IP address)." },
-        { type: "Street map", purpose: "The map loads map tiles from OpenFreeMap as you pan and zoom. Each request carries the part of the map being shown and, like any web request, your IP address. It carries no card data and no account. The app does not ask for or use your phone's location. Station, exit, timetable and bus stop information is stored inside the app, so searching and planning a trip run on your phone." },
-        { type: "Live station and bus information", purpose: "When you open a station card, a bus stop card or the bus view, the app asks the Land Transport Authority's DataMall for that line's crowd levels or that bus stop's arrival times. The request names only the line or the bus stop and carries your IP address; nothing about you or your card is sent. It is asked for once and refreshed while the card stays open." },
+        { type: "Street map", purpose: "The map loads map tiles from OpenFreeMap as you pan and zoom. Each request carries the part of the map being shown and, like any web request, your IP address. It carries no card data and no account. Because the map opens on your position when you allow location, the part of the map requested then is the area around you, which like any web request goes with your IP address. Station, exit, timetable and bus stop information is stored inside the app, so searching and planning a trip run on your phone." },
+        { type: "Location (optional)", purpose: "If you allow it, the app reads your phone's approximate or precise location while it is open: when the map opens, and each time you tap the Near me button. It is used on your phone only, to centre the map on you, to draw where you are and to list the closest stations and bus stops by straight-line distance. It is never stored, never sent to us and never shared with anyone else, and the app never reads your location in the background. You can decline, and everything else in the app still works." },
+        { type: "Saved places (on device)", purpose: "The stations and bus stops you star are saved on your phone so you can find them again. They are never uploaded, and Delete local data in Settings removes them." },
+        { type: "Train disruption alerts (optional)", purpose: "If you switch it on in Settings, the app asks for notification permission and, about every 15 minutes (sometimes later to save battery), asks the Land Transport Authority whether a train line is disrupted, then sends a notification on your phone if so. The request carries only your IP address, like any web request; nothing about you or your card is sent, and nothing is sent to us. You can switch it off at any time." },
+        { type: "Messages from us (Firebase)", purpose: "The app includes Firebase Cloud Messaging and Firebase In-App Messaging, so we can show you an occasional message about the app. Firebase gives your installation of the app an identifier and uses it to deliver them, and receives the device model, OS version and app version. No card data, location or saved places are sent. Notifications from us need your notification permission, which you can refuse or withdraw in Android settings." },
+        { type: "Live station and bus information", purpose: "When you open a station card, a bus stop card, the bus view or the saved places list, the app asks the Land Transport Authority's DataMall for that line's crowd levels and lift outages, or that bus stop's arrival times, and the Metro view asks whether a train line is disrupted. The request names only the line or the bus stop and carries your IP address; nothing about you or your card is sent. It is asked for once and refreshed while the card stays open." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us — we never receive it." },
         { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded, that a scan failed and why, that a card was renamed, that history was exported, that the language or currency was changed, which screens such as the map or a guide topic were opened. Never your balance, your card number, your records or a nickname: no card data is included in any event." },
         { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, OS version, app version and a stack trace are sent so the fault can be found and fixed." },
@@ -680,8 +684,8 @@ export const apps: App[] = [
           policyUrl: "https://policies.google.com/privacy",
         },
         {
-          name: "Google Firebase (Analytics, Crashlytics, Performance Monitoring)",
-          purpose: "Anonymous usage counts, crash reports and performance measurements. No card data is ever sent.",
+          name: "Google Firebase (Analytics, Crashlytics, Performance Monitoring, Cloud Messaging, In-App Messaging)",
+          purpose: "Anonymous usage counts, crash reports and performance measurements, and delivery of messages from us to your installation of the app. No card data, location or saved places are ever sent.",
           policyUrl: "https://firebase.google.com/support/privacy",
         },
         {
@@ -701,7 +705,7 @@ export const apps: App[] = [
         },
         {
           name: "Land Transport Authority (LTA DataMall)",
-          purpose: "Supplies the live station crowd levels and bus arrival times shown on the map. Only the line or the bus stop being viewed is sent; no card or personal data.",
+          purpose: "Supplies the live station crowd levels, bus arrival times, train service alerts and lift outages shown in the app. Only the line or the bus stop being viewed is sent, with your IP address; no card, location or personal data.",
           policyUrl: "https://www.lta.gov.sg/content/ltagov/en/privacy-statement.html",
         },
       ],
@@ -711,7 +715,7 @@ export const apps: App[] = [
         steps: [
           "Open the app and go to the Settings tab.",
           "Under Data, tap \"Delete local data\".",
-          "Confirm. Every saved card, its nickname, its stored history, any scheduled expiry reminders and the cached exchange rates are removed from the phone straight away. A purchase is tied to your Google account, not to this data, and can be restored at any time.",
+          "Confirm. Every saved card, its nickname, its stored history, any saved stations and bus stops, any scheduled expiry reminders and the cached exchange rates are removed from the phone straight away. A purchase is tied to your Google account, not to this data, and can be restored at any time.",
           "To remove everything at once instead, uninstall the app — all of its local data goes with it.",
         ],
       },
