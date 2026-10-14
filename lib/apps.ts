@@ -777,13 +777,14 @@ export const apps: App[] = [
     name: "FeedLock",
     tagline: "Block Reels and Shorts. Keep the apps you need.",
     category: "Productivity",
-    status: "coming-soon",
+    status: "live",
     platforms: ["Android"],
     accent: { from: "#1FC98E", to: "#0A6F4D", ink: "#0B0F17" },
     glyph: "lock",
     iconSrc: "/apps/feedlock/icon.png",
-    version: "0.0.1",
-    updated: "2026-09-30",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.feedlock",
+    version: "1.0.0",
+    updated: "2026-10-14",
     short:
       "Stop doomscrolling: block Reels, Shorts and endless feeds without deleting the apps, with a strict mode that actually holds.",
     description: [
