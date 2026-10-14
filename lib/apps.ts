@@ -784,12 +784,12 @@ export const apps: App[] = [
     iconSrc: "/apps/feedlock/icon.png",
     storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.feedlock",
     version: "1.0.0",
-    updated: "2026-10-14",
+    updated: "2026-10-15",
     short:
       "Stop doomscrolling: block Reels, Shorts and endless feeds without deleting the apps, with a strict mode that actually holds.",
     description: [
       "FeedLock closes the endless feeds and leaves the rest of the app alone. Reels, Shorts, Explore and Spotlight shut the moment they open, while messages, search, posting and normal videos keep working. Want an app gone completely? Block the whole app instead.",
-      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, no ads, and what you see, type or which apps you use is never sent. In English, Español, Deutsch, Français and Português.",
+      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, and what you see, type or which apps you use is never sent. In English, Español, Deutsch, Français and Português.",
     ],
     features: [
       { icon: "shield", title: "Block just the feed", body: "Reels, Shorts, Explore and Spotlight close instantly; messages, search and posting keep working." },
@@ -802,12 +802,12 @@ export const apps: App[] = [
       { kind: "list", title: "Blockers" },
     ],
     privacy: {
-      lastUpdated: "2026-10-01",
+      lastUpdated: "2026-10-15",
       summary:
-        "FeedLock blocks feeds on your phone. It uses Android's Accessibility service only to recognise the apps and feeds you chose to block so it can close them; it never records, stores or sends what you see or type. Your rules, sessions, screen time and stats stay on your device. There is no account and no ads. The app reports anonymous crash reports, usage events and performance data to Google Firebase (usage and performance reporting can be switched off in Settings; crash reports cannot) and registers a push token so we can send announcements. No screen content, typed text or names of your apps are ever sent. Purchases are handled by Google Play, and the app downloads a public list of feed signatures so blocking keeps working when apps change.",
-      collectsPersonalData: false,
+        "FeedLock blocks feeds on your phone. It uses Android's Accessibility service only to recognise the apps and feeds you chose to block so it can close them; it never records, stores or sends what you see or type. Your rules, sessions, screen time and stats stay on your device. There is no account. If you do not have Pro, FeedLock shows ads through Google AdMob (native, interstitial and app-open ads); AdMob and Google may use the Android advertising ID, device information, your IP address (approximate location) and ad interactions to serve and measure them, and in the EEA, UK and Switzerland a consent form is shown first. Pro removes all ads, and ads are never shown during an active focus session. What you see, type or which apps you use is never used for ads or sent to AdMob. The app reports anonymous crash reports, usage events and performance data to Google Firebase (usage and performance reporting can be switched off in Settings; crash reports cannot) and registers a push token so we can send announcements. No screen content, typed text or names of your apps are ever sent. Purchases are handled by Google Play, and the app downloads a public list of feed signatures so blocking keeps working when apps change.",
+      collectsPersonalData: true,
       accountRequired: false,
-      showsAds: false,
+      showsAds: true,
       usesAnalytics: true,
       sharesWithThirdParties: true,
       childDirected: false,
@@ -821,11 +821,16 @@ export const apps: App[] = [
         { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, Android version, app version, app language and a stack trace are sent so the fault can be fixed, along with start-up and network timings. Crash reports are always on; performance data can be switched off in Settings > Privacy." },
         { type: "Push token", purpose: "A Firebase Cloud Messaging token lets us send occasional announcements from the Firebase console. It identifies your installation, not you." },
         { type: "Feed signature updates", purpose: "The app periodically downloads a small, public, signed file that describes how to recognise each feed. The request contains no data about you or your usage beyond what any web request carries (such as your IP address)." },
+        { type: "Advertising ID (ads)", purpose: "Android advertising ID, shared with Google AdMob for advertising and analytics. Used only for users without Pro; the ads SDK is never started for Pro users. In the EEA, UK and Switzerland it is controlled by the consent form (Google UMP), which you can reopen in Settings > Privacy (\"Privacy choices\"). You can reset or delete the advertising ID in Android settings." },
+        { type: "Device information for ads", purpose: "Device model and Android version, sent to Google AdMob with ad requests for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland." },
+        { type: "Approximate location from IP address (ads)", purpose: "AdMob derives an approximate location from the IP address of ad requests, shared with Google AdMob for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland. FeedLock never reads your precise location." },
+        { type: "Ad interactions and diagnostics", purpose: "Ad impressions and taps, plus crash and diagnostic data from the ads SDK, shared with Google AdMob for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland. Screen content, typed text and the apps you use are never used for ads or sent to AdMob." },
         { type: "Device admin (optional)", purpose: "If you turn on uninstall protection, FeedLock becomes a device admin only so it can't be removed during a strict session. It uses no admin policies: it cannot lock, wipe or monitor your device." },
       ],
       thirdParties: [
         { name: "Google Play Billing", purpose: "Processes subscriptions and one-time purchases.", policyUrl: "https://policies.google.com/privacy" },
         { name: "Google Firebase (Analytics, Crashlytics, Cloud Messaging, Performance Monitoring)", purpose: "Anonymous usage events, crash reports, performance measurements and announcement push messages. No screen content, typed text or app names are ever sent.", policyUrl: "https://firebase.google.com/support/privacy" },
+        { name: "Google AdMob (Google Mobile Ads SDK)", purpose: "Shows and measures ads for users without Pro, using the Android advertising ID, device information, IP address and ad interactions. Never receives screen content, typed text or app names.", policyUrl: "https://policies.google.com/privacy" },
         { name: "GitHub Pages", purpose: "Hosts the public feed-signature file the app downloads. No personal data is sent.", policyUrl: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" },
       ],
       dataDeletion: {
