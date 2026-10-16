@@ -789,11 +789,11 @@ export const apps: App[] = [
       "Stop doomscrolling: block Reels, Shorts and endless feeds without deleting the apps, with a strict mode that actually holds.",
     description: [
       "FeedLock closes the endless feeds and leaves the rest of the app alone. Reels, Shorts, Explore and Spotlight shut the moment they open, while messages, search, posting and normal videos keep working. Want an app gone completely? Block the whole app instead.",
-      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and optional uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, and what you see, type or which apps you use is never sent. In English, Español, Deutsch, Français and Português.",
+      "Strict sessions can't be ended on a whim: changes that weaken your blocks wait until the timer runs out, and uninstall protection keeps FeedLock in place. When you really need out, there's a free 30-minute cooldown or a small instant unlock. See your screen time by app, blocked attempts, time saved and your streak. No account, and what you see, type or which apps you use is never sent. In English, Español, Deutsch, Français and Português.",
     ],
     features: [
       { icon: "shield", title: "Block just the feed", body: "Reels, Shorts, Explore and Spotlight close instantly; messages, search and posting keep working." },
-      { icon: "lock", title: "A strict mode that holds", body: "Sessions that can't be ended on a whim, with optional uninstall protection." },
+      { icon: "lock", title: "A strict mode that holds", body: "Sessions that can't be ended on a whim, with uninstall protection." },
       { icon: "chart", title: "Screen time that changes habits", body: "Screen time by app, blocked attempts, time saved and your focus streak." },
       { icon: "bell", title: "Schedules and daily limits", body: "Let FeedLock start strict sessions for you, overnight or when a daily limit runs out (Pro)." },
     ],
@@ -825,7 +825,7 @@ export const apps: App[] = [
         { type: "Device information for ads", purpose: "Device model and Android version, sent to Google AdMob with ad requests for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland." },
         { type: "Approximate location from IP address (ads)", purpose: "AdMob derives an approximate location from the IP address of ad requests, shared with Google AdMob for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland. FeedLock never reads your precise location." },
         { type: "Ad interactions and diagnostics", purpose: "Ad impressions and taps, plus crash and diagnostic data from the ads SDK, shared with Google AdMob for advertising and analytics. Only for users without Pro, and subject to the same consent choice in the EEA, UK and Switzerland. Screen content, typed text and the apps you use are never used for ads or sent to AdMob." },
-        { type: "Device admin (optional)", purpose: "If you turn on uninstall protection, FeedLock becomes a device admin only so it can't be removed during a strict session. It uses no admin policies: it cannot lock, wipe or monitor your device." },
+        { type: "Device admin (required during setup)", purpose: "FeedLock asks you to turn on uninstall protection in the last setup step. This makes FeedLock a device admin only so it can't be removed during a strict session. It uses no admin policies: it cannot lock, wipe or monitor your device." },
       ],
       thirdParties: [
         { name: "Google Play Billing", purpose: "Processes subscriptions and one-time purchases.", policyUrl: "https://policies.google.com/privacy" },
@@ -838,7 +838,7 @@ export const apps: App[] = [
           "Everything FeedLock stores lives on your phone, so deleting it is immediate and needs no request to us. The anonymous Firebase data is not tied to your name or an account; uninstalling stops any further reporting and Google deletes it on its normal retention schedule.",
         steps: [
           "If a strict session is running, wait for it to end (or use the cooldown).",
-          "If you turned on uninstall protection, switch it off in FeedLock's Shield tab.",
+          "Switch uninstall protection off in FeedLock's Shield tab (or in Android Settings > Security > Device admin apps).",
           "Uninstall FeedLock. Your rules, sessions, screen-time cache and stats are removed with it.",
         ],
       },
