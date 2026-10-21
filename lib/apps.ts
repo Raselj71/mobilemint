@@ -722,6 +722,103 @@ export const apps: App[] = [
     },
   },
   {
+    slug: "malaysia-transit-map",
+    name: "Malaysia MRT, LRT & Bus Map",
+    tagline: "An offline train and bus map for Kuala Lumpur and Malaysia, with directions and live buses.",
+    category: "Navigation",
+    status: "coming-soon",
+    platforms: ["Android"],
+    accent: { from: "#1E7FD0", to: "#0B5FA5", ink: "#04233F" },
+    glyph: "compass",
+    iconSrc: "/apps/malaysia-transit-map/icon.png",
+    screenshots: [
+      "/apps/malaysia-transit-map/screens/01-map.png",
+      "/apps/malaysia-transit-map/screens/02-directions.png",
+      "/apps/malaysia-transit-map/screens/03-bus.png",
+      "/apps/malaysia-transit-map/screens/04-explore.png",
+      "/apps/malaysia-transit-map/screens/05-passport.png",
+      "/apps/malaysia-transit-map/screens/06-intercity.png",
+    ],
+    version: "0.1.0",
+    updated: "2026-10-21",
+    short:
+      "Get around Malaysia by MRT, LRT, KTM Komuter and city bus, with offline train directions, live buses and a station passport, in 5 languages.",
+    description: [
+      "Malaysia MRT, LRT & Bus Map puts the Klang Valley rail network and the bus services of eleven Malaysian cities on one map. Pick two stations and see the scheduled minutes on the train and how many changes. The timetables are inside the app, so train directions, station cards and bus routes work with no signal.",
+      "Rail covers the LRT, MRT, Monorail, BRT Sunway and KTM Komuter lines. Buses cover Kuala Lumpur, Penang, Ipoh, Seremban, Melaka, Johor Bahru, Alor Setar, Kangar, Kota Bharu, Kuala Terengganu and Kuching: search a route to draw it with all its stops, and watch live bus positions move on the map. A list of intercity departures covers ETS and other KTM long-distance trains between two stations.",
+      "Collect a stamp for every Rapid Rail station you visit in the Station Passport, set an alarm to be alerted near your stop, and browse places to visit with their nearest station. There is no account. The app is free with ads, and a one-time purchase removes them. English, Bahasa Melayu, 简体中文, Bahasa Indonesia and বাংলা. Unofficial: not affiliated with Prasarana, Rapid KL, KTMB, BAS.MY, Touch 'n Go or any operator or government body. It shows scheduled times only, with no fares or bus arrival times, and it cannot read Touch 'n Go cards.",
+    ],
+    features: [
+      { icon: "compass", title: "Offline train directions", body: "Choose two stations for the scheduled time on the train and the number of changes. No download and no signal needed." },
+      { icon: "globe", title: "Buses in 11 cities", body: "Search a route to see all its stops, and watch live bus positions on the map in Kuala Lumpur and other cities." },
+      { icon: "star", title: "Station Passport and alarm", body: "Stamp every Rapid Rail station you visit, and get alerted when you are close to your stop." },
+      { icon: "lock", title: "No account", body: "Your location is used on your phone only, to show what is near you, and is never stored or sent to us." },
+    ],
+    screens: [
+      { kind: "list", title: "Stations" },
+      { kind: "stat", title: "Passport" },
+    ],
+    privacy: {
+      lastUpdated: "2026-10-21",
+      summary:
+        "There is no account and no sign-up. Train and bus timetables are stored inside the app, so searching and planning a trip run on your phone. The street map loads map tiles from OpenFreeMap, and while the Bus view is open the app asks the Malaysian government's open data service (data.gov.my) for live bus positions; these requests contain no account and nothing about you beyond your IP address. If you allow it, the app reads your phone's location (only while the app is open) to show where you are, the closest stations and bus stops, to stamp your Station Passport and to alert you near your stop; your location stays on your phone and is never sent to us, stored or shared. Your passport stamps, saved places and recent routes are kept on your phone only. The app is free and ad-supported, and uses Google Firebase to report anonymous usage and crash information, and to be able to send you messages from us.",
+      collectsPersonalData: false,
+      accountRequired: false,
+      showsAds: true,
+      usesAnalytics: true,
+      sharesWithThirdParties: true,
+      childDirected: false,
+      dataPoints: [
+        { type: "Street map", purpose: "The map loads map tiles from OpenFreeMap as you pan and zoom. Each request carries the part of the map being shown and, like any web request, your IP address. It carries no account. With no connection the app draws the lines, stations and routes on a plain background. Station, timetable and bus stop information is stored inside the app." },
+        { type: "Live bus positions", purpose: "While the Bus view is open, about every 30 seconds the app asks data.gov.my for the positions of buses in the city you are looking at. The request names the city's feed and carries your IP address; nothing about you is sent, and nothing is sent to us. Positions older than 5 minutes are not shown." },
+        { type: "Location (optional)", purpose: "If you allow it, the app reads your phone's approximate or precise location while it is open, for Near me, the Station Passport check-in (within about 150 metres of a station) and the get-off alarm (within about 700 metres, straight-line). It is used on your phone only, never stored, never sent to us and never shared, and the app never reads your location in the background. You can decline, and everything else in the app still works." },
+        { type: "Get-off alarm notification (optional)", purpose: "If you arm the alarm, the app asks for notification permission and shows a notification on your phone when you are close to your stop. It is created and delivered locally on the device; nothing is sent to us. The alarm works only while the app is open." },
+        { type: "Passport, saved places and recent routes (on device)", purpose: "The stations you stamp, the stations and stops you star and the routes you search are saved on your phone so you can find them again. They are never uploaded, and uninstalling the app removes them." },
+        { type: "Purchase status (optional)", purpose: "The app is free and ad-supported. You can pay once to remove ads. The payment is handled entirely by Google Play, so we never see your card or payment details. The app only asks Google Play whether this Google account owns the purchase, and keeps a note on your phone so ads stay off." },
+        { type: "Messages from us (Firebase)", purpose: "The app includes Firebase Cloud Messaging and Firebase In-App Messaging, so we can show you an occasional message about the app. Firebase gives your installation of the app an identifier and uses it to deliver them, and receives the device model, OS version and app version. No location, passport stamps or saved places are sent. Notifications from us need your notification permission, which you can refuse or withdraw in Android settings." },
+        { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us. There are no ads on the map screen." },
+        { type: "Usage events", purpose: "Anonymous counts of what happens in the app, such as which screens or guide topics were opened, that the language or theme was changed, and whether an ad was shown. Never your location, the stations you searched or your routes." },
+        { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, OS version, app version and a stack trace are sent so the fault can be found and fixed." },
+      ],
+      thirdParties: [
+        {
+          name: "Google AdMob",
+          purpose: "Shows the ads that keep the app free, and applies frequency limits so the same ad is not repeated.",
+          policyUrl: "https://policies.google.com/privacy",
+        },
+        {
+          name: "Google Firebase (Analytics, Crashlytics, Performance Monitoring, Cloud Messaging, In-App Messaging)",
+          purpose: "Anonymous usage counts, crash reports and performance measurements, and delivery of messages from us to your installation of the app. No location, passport stamps or saved places are ever sent.",
+          policyUrl: "https://firebase.google.com/support/privacy",
+        },
+        {
+          name: "Google Play Billing",
+          purpose: "Processes the optional one-time purchase that removes ads and tells the app whether you own it. We receive no payment details.",
+          policyUrl: "https://policies.google.com/privacy",
+        },
+        {
+          name: "OpenFreeMap",
+          purpose: "Supplies the map tiles for the street map. Its privacy policy says it has no user accounts, uses no cookies or tracking, and does not store IP addresses in its normal access logs. Map data is © OpenStreetMap contributors.",
+          policyUrl: "https://openfreemap.org/privacy/",
+        },
+        {
+          name: "data.gov.my (Government of Malaysia open data)",
+          purpose: "Supplies the live bus positions shown while the Bus view is open. Only the city's feed is requested, with your IP address; no location or personal data. The train and bus timetables stored in the app come from the same open data (Prasarana, KTMB and BAS.MY).",
+          policyUrl: "https://data.gov.my",
+        },
+      ],
+      dataDeletion: {
+        summary:
+          "Your passport stamps, saved places and recent routes live on your phone alone, so removing them needs no request to us. Anonymous usage and crash reports held by Firebase are not tied to your identity; uninstalling stops any further reporting, and you can ask us to purge what has already been collected.",
+        steps: [
+          "To remove everything, uninstall the app. All of its local data goes with it.",
+          "To remove a saved place, open it and tap the star again.",
+          "To ask us to purge anonymous usage or crash reports already collected, email us using the address on the Contact page.",
+        ],
+      },
+    },
+  },
+  {
     slug: "cards-29",
     name: "Cards 29",
     tagline: "The classic Twenty-Nine card game — offline or online.",
