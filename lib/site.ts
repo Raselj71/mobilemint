@@ -25,6 +25,7 @@ export const site = {
 
 export const nav = [
   { label: "Apps", href: "/apps" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Hire", href: "/hire" },
   { label: "Contact", href: "/contact" },
