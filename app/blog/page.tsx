@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { apps } from "@/lib/apps";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog — MobileMint",
@@ -55,7 +53,7 @@ const blogPosts = [
     title: "Singapore MRT Bus Card Balance: EZ-Link and NETS FlashPay in One Tap",
     description: "Discover Singapore MRT Bus Card Balance — check your EZ-Link or NETS FlashPay card balance, trip history, spending, and card expiry. Free with ads, with CSV export and 4 languages.",
   },
-] as const;
+];
 
 export default function BlogPage() {
   return (
@@ -87,7 +85,7 @@ export default function BlogPage() {
                   {post.description}
                 </p>
                 <Link
-                  href `/blog/${post.slug}`
+                  href={"/blog/" + post.slug}
                   className="mt-3 inline-block text-mint-500 underline underline-opacity-50 hover:text-mint-600 transition-colors"
                 >
                   Read blog post
