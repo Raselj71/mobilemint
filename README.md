@@ -27,6 +27,9 @@ app/
   apps/page.tsx                all apps grid
   apps/[slug]/page.tsx         app detail (one per app, prerendered)
   apps/[slug]/privacy/page.tsx per-app privacy policy
+  blog/page.tsx                blog index (lists every post)
+  blog/[slug]/page.tsx         blog post (one per .md file, prerendered)
+  blog/*.md                    blog post sources (markdown + frontmatter)
   privacy/page.tsx             website privacy policy
   about/ contact/              studio pages
   sitemap.ts  robots.ts        SEO
@@ -34,6 +37,7 @@ components/                    Navbar, Footer, AppCard, PhoneMockup, PrivacyPoli
 lib/
   site.ts                      brand/contact constants (edit me first)
   apps.ts                      THE app catalog + privacy metadata
+  blog.ts                      reads + parses the blog markdown posts
 public/brand/                  logo + icon source files
 ```
 
@@ -51,6 +55,23 @@ flags (`collectsPersonalData`, `showsAds`, `usesAnalytics`, etc.), list `dataPoi
 
 > The three apps currently in the catalog (Sprout, Airwave, Splitly) are **realistic
 > placeholders**. Replace their copy, Play Store URLs, and privacy data with your real apps.
+
+## Adding a blog post
+
+Drop a new markdown file in **`app/blog/`** with this frontmatter, and the blog index, the
+post page, and the sitemap pick it up automatically (newest `date` first):
+
+```md
+---
+title: "Post title"
+description: "One or two sentences shown on the index and in search results."
+date: "2026-10-11"
+slug: "url-slug"
+---
+```
+
+Files without a `slug` (such as `index.md`) are ignored. GitHub-flavored markdown (tables,
+blockquotes, lists) is supported.
 
 ## App icons & screenshots
 
