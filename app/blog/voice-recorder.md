@@ -1,6 +1,6 @@
 ---
 title: "AI Voice Recorder: Record On-Device, Never Upload"
-description: "Learn about AI Voice Recorder, the app that captures audio entirely on your device with on-device transcription, markers, and full privacy. Free with ads, Pro unlocks extra features."
+description: "AI Voice Recorder captures audio entirely on your device, with on-device transcription and markers. Free with ads; Pro unlocks extra features."
 date: "2026-08-29"
 slug: "voice-recorder"
 ---

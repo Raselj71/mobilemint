@@ -36,6 +36,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink/40">Studio</h4>
             <ul className="mt-4 space-y-2.5 text-sm">
+              <li><Link href="/blog" className="text-ink/70 hover:text-mint-700">Blog</Link></li>
               <li><Link href="/about" className="text-ink/70 hover:text-mint-700">About</Link></li>
               <li><Link href="/hire" className="text-ink/70 hover:text-mint-700">Hire us</Link></li>
               <li><Link href="/privacy" className="text-ink/70 hover:text-mint-700">Privacy</Link></li>

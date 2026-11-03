@@ -43,6 +43,15 @@ export function getPostSlugs(): string[] {
   return getAllPosts().map((post) => post.slug);
 }
 
+/** The `count` posts that follow `slug` in date order, wrapping around to the newest. */
+export function getMorePosts(slug: string, count = 3): BlogPost[] {
+  const posts = getAllPosts();
+  const index = posts.findIndex((post) => post.slug === slug);
+  if (index === -1) return posts.slice(0, count);
+  const others = [...posts.slice(index + 1), ...posts.slice(0, index)];
+  return others.slice(0, count);
+}
+
 export function formatPostDate(date: string): string {
   const parsed = new Date(`${date}T00:00:00Z`);
   if (Number.isNaN(parsed.getTime())) return date;

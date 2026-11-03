@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import ReactMarkdown, { type Components } from "react-markdown";
-import remarkGfm from "remark-gfm";
+import AppIcon from "@/components/AppIcon";
+import BlogCard from "@/components/BlogCard";
+import BlogMarkdown from "@/components/BlogMarkdown";
 import Glyph from "@/components/Glyph";
+import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
-import { formatPostDate, getPost, getPostSlugs } from "@/lib/blog";
+import StoreButton from "@/components/StoreButton";
+import { getApp } from "@/lib/apps";
+import { formatPostDate, getMorePosts, getPost, getPostSlugs } from "@/lib/blog";
+import { absoluteUrl, pageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -14,65 +20,74 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getPost(params.slug);
   if (!post) return {};
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.description,
-  };
+    path: `/blog/${post.slug}`,
+    image: { url: `${site.url}/blog/${post.slug}/og.png`, alt: post.title },
+    openGraph: {
+      type: "article",
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: [site.name],
+    },
+  });
 }
-
-// The page header already renders the post title as the <h1>, so a `#` heading
-// inside the markdown body is demoted to an <h2> to keep a single <h1> per page.
-const markdownComponents: Components = {
-  h1: ({ children }) => (
-    <h2 className="mt-2 font-display text-2xl font-semibold leading-snug text-ink sm:text-3xl">{children}</h2>
-  ),
-  h2: ({ children }) => <h2 className="mt-12 font-display text-xl font-semibold text-ink sm:text-2xl">{children}</h2>,
-  h3: ({ children }) => <h3 className="mt-8 font-display text-lg font-semibold text-ink">{children}</h3>,
-  p: ({ children }) => <p className="mt-4 leading-relaxed text-ink/70">{children}</p>,
-  strong: ({ children }) => <strong className="font-semibold text-ink">{children}</strong>,
-  ul: ({ children }) => <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-ink/70 marker:text-mint-500">{children}</ul>,
-  ol: ({ children }) => <ol className="mt-4 list-decimal space-y-2 pl-6 leading-relaxed text-ink/70 marker:text-mint-600">{children}</ol>,
-  blockquote: ({ children }) => (
-    <blockquote className="mt-6 rounded-2xl border border-mint-200 border-l-4 border-l-mint-500 bg-mint-50/60 px-5 py-4 [&>p]:mt-0">
-      {children}
-    </blockquote>
-  ),
-  hr: () => <hr className="mt-12 border-mint-100" />,
-  a: ({ href = "", children }) => {
-    const className = "font-medium text-mint-700 underline decoration-mint-300 underline-offset-4 transition-colors hover:text-mint-600";
-    if (href.startsWith("/")) {
-      return (
-        <Link href={href} className={className}>
-          {children}
-        </Link>
-      );
-    }
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-        {children}
-      </a>
-    );
-  },
-  table: ({ children }) => (
-    <div className="mt-6 overflow-x-auto rounded-2xl border border-mint-100 bg-paper shadow-card">
-      <table className="w-full min-w-[32rem] border-collapse text-left text-sm">{children}</table>
-    </div>
-  ),
-  thead: ({ children }) => <thead className="bg-mint-50 text-ink">{children}</thead>,
-  tr: ({ children }) => <tr className="border-b border-mint-100 last:border-b-0">{children}</tr>,
-  th: ({ children }) => <th className="px-4 py-3 font-semibold">{children}</th>,
-  td: ({ children }) => <td className="px-4 py-3 align-top leading-relaxed text-ink/70">{children}</td>,
-};
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPost(params.slug);
   if (!post) notFound();
 
+  const app = getApp(post.slug);
+  const morePosts = getMorePosts(post.slug);
+  const url = absoluteUrl(`/blog/${post.slug}`);
+  const publisher = {
+    "@type": "Organization",
+    name: site.name,
+    url: absoluteUrl("/"),
+    logo: { "@type": "ImageObject", url: `${site.url}/brand/mobilemint-icon-512-square.png` },
+  };
+
+  const blogPosting = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en",
+    url,
+    image: `${site.url}/blog/${post.slug}/og.png`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: publisher,
+    publisher,
+    ...(app && {
+      about: {
+        "@type": "SoftwareApplication",
+        name: app.name,
+        url: absoluteUrl(`/apps/${app.slug}`),
+        operatingSystem: app.platforms.join(", "),
+      },
+    }),
+  };
+
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
+    ],
+  };
+
   return (
-    <article className="grain relative overflow-hidden">
+    <div className="grain relative overflow-hidden">
+      <JsonLd data={blogPosting} />
+      <JsonLd data={breadcrumbs} />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-mesh opacity-80" />
 
-      <div className="container-page relative py-12 lg:py-20">
+      <div className="container-page relative pb-8 pt-10 lg:pt-14">
         <Reveal>
           <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink/55 transition-colors hover:text-mint-700">
             <Glyph name="arrow" className="h-4 w-4 rotate-180" />
@@ -80,22 +95,78 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </Link>
         </Reveal>
 
-        <header className="mt-8 max-w-3xl">
-          <Reveal delay={0.06}>
-            <time dateTime={post.date} className="eyebrow">
-              {formatPostDate(post.date)}
-            </time>
-            <h1 className="mt-5 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">{post.title}</h1>
-            <p className="mt-5 text-lg leading-relaxed text-ink/60">{post.description}</p>
-          </Reveal>
-        </header>
+        <article>
+          <header className="mt-8 max-w-3xl">
+            <Reveal delay={0.06}>
+              <span className="eyebrow">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-mint-500" />
+                The blog
+              </span>
+              <h1 className="mt-5 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">{post.title}</h1>
+              <p className="mt-5 text-lg leading-relaxed text-ink/60">{post.description}</p>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-3 text-sm text-ink/55">
+                {app && (
+                  <>
+                    <Link href={`/apps/${app.slug}`} className="inline-flex items-center gap-2.5 font-semibold text-ink/80 transition-colors hover:text-mint-700">
+                      <AppIcon app={app} size={32} />
+                      {app.name}
+                    </Link>
+                    <span aria-hidden="true">·</span>
+                  </>
+                )}
+                <span>By {site.name}</span>
+                <span aria-hidden="true">·</span>
+                <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+              </div>
+            </Reveal>
+          </header>
 
-        <div className="mt-10 max-w-3xl border-t border-mint-100 pt-6">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-            {post.content}
-          </ReactMarkdown>
-        </div>
+          <div className="mt-10 max-w-3xl border-t border-mint-100 pt-4">
+            <BlogMarkdown content={post.content} />
+          </div>
+        </article>
       </div>
-    </article>
+
+      {app && (
+        <section className="container-page relative py-12">
+          <Reveal>
+            <div className="max-w-3xl rounded-3xl border border-mint-100 bg-paper p-8 shadow-card">
+              <div className="flex items-center gap-4">
+                <AppIcon app={app} size={68} />
+                <div className="min-w-0">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-mint-600">{app.category}</p>
+                  <h2 className="mt-1 font-display text-xl font-semibold text-ink">{app.name}</h2>
+                </div>
+              </div>
+              <p className="mt-4 leading-relaxed text-ink/65">{app.short}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <StoreButton href={app.storeUrl} comingSoon={app.status === "coming-soon"} />
+                <Link href={`/apps/${app.slug}`} className="btn-ghost">
+                  App details
+                  <Glyph name="arrow" className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+      )}
+
+      {morePosts.length > 0 && (
+        <section className="container-page relative pb-16 pt-4 lg:pb-20">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold text-ink">Keep reading</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {morePosts.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 0.08} className="h-full">
+                <BlogCard post={p} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
   );
 }

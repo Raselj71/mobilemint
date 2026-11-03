@@ -1,6 +1,6 @@
 ---
 title: "Pocket Scanner: Scan, Edit, and Sign PDFs — Right from Your Pocket"
-description: "Discover how Pocket Scanner turns your phone into a powerful document scanner and PDF editor. Fully offline, ad-supported, with OCR and all document tools working completely on-device. Read our privacy-focused approach."
+description: "Pocket Scanner turns your phone into a document scanner and PDF editor. Fully offline, with OCR and every tool working on-device. Ad-supported."
 date: "2026-07-19"
 slug: "pocket-scanner"
 ---

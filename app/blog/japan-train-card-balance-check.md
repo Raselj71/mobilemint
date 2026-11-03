@@ -1,6 +1,6 @@
 ---
 title: "Japan Train Card Balance Check: Suica, PASMO, ICOCA — Read Your Card in One Tap"
-description: "Learn how to check your Japanese transit card balance and ride history. Your card data never leaves your phone. Free with ads, with history that outlasts the card."
+description: "Check your Suica, PASMO, or ICOCA balance and ride history in one tap. Your card data never leaves your phone. Free with ads; history outlasts the card."
 date: "2026-09-18"
 slug: "japan-train-card-balance-check"
 ---

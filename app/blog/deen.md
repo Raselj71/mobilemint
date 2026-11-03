@@ -1,6 +1,6 @@
 ---
 title: "Deen: Prayer Times, Quran, and Qibla — Bangla-First and Offline"
-description: "Learn about Deen, the ad-light prayer companion with accurate prayer times, Quran reading, and qibla compass. Built in Bangla, offline-first, with minimal data collection."
+description: "Deen is an ad-light prayer companion with accurate prayer times, Quran reading, and a qibla compass. Bangla-first, offline, with minimal data collection."
 date: "2026-06-09"
 slug: "deen"
 ---

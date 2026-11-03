@@ -1,6 +1,6 @@
 ---
 title: "Singapore MRT Bus Card Balance: EZ-Link and NETS FlashPay in One Tap"
-description: "Discover Singapore MRT Bus Card Balance — check your EZ-Link or NETS FlashPay card balance, trip history, spending, and card expiry. Free with ads, with CSV export and 4 languages."
+description: "Check your EZ-Link or NETS FlashPay balance, trip history, spending, and card expiry. Free with ads, with CSV export and 4 languages."
 date: "2026-10-11"
 slug: "sg-card-balance"
 ---

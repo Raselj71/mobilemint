@@ -1,6 +1,6 @@
 ---
 title: "GoLive Studio: Multistream to YouTube and Facebook at Once"
-description: "Learn how GoLive Studio turns your phone into a multistreaming studio. Broadcast live to YouTube and Facebook simultaneously without a computer. Coming soon to Google Play."
+description: "GoLive Studio turns your phone into a multistreaming studio. Broadcast live to YouTube and Facebook at once, no computer needed. Coming soon to Google Play."
 date: "2026-07-03"
 slug: "golive-studio"
 ---
@@ -40,7 +40,7 @@ GoLive Studio streams to the YouTube and Facebook accounts you connect. We use t
 - **Advertising ID** — Used by our ad partner to show ads and limit repetition.
 - **Anonymous app diagnostics** — Crash logs and aggregated usage to improve the app.
 
-[Download on Google Play](https://play.google.com/store/apps/details?id=com.mobilemint.golivestudio)
+**Coming soon to Google Play.**
 
 ---
 
