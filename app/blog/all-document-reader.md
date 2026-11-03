@@ -1,6 +1,6 @@
 ---
 title: "All Document Reader: Open Any Document — PDF, Word, Excel, and More"
-description: "Discover All Document Reader, a lightweight app that opens PDF, Word, Excel, PowerPoint, and text files. Fast, local-only, with ads and optional in-app purchases."
+description: "All Document Reader opens PDF, Word, Excel, PowerPoint, and text files. Fast and local-only, with ads and optional in-app purchases."
 date: "2026-07-02"
 slug: "all-document-reader"
 ---

@@ -30,6 +30,7 @@ app/
   blog/page.tsx                blog index (lists every post)
   blog/[slug]/page.tsx         blog post (one per .md file, prerendered)
   blog/*.md                    blog post sources (markdown + frontmatter)
+  blog/og.png/ blog/[slug]/og.png/   share-image routes (1200x630 PNG, built statically)
   privacy/page.tsx             website privacy policy
   about/ contact/              studio pages
   sitemap.ts  robots.ts        SEO
@@ -38,6 +39,8 @@ lib/
   site.ts                      brand/contact constants (edit me first)
   apps.ts                      THE app catalog + privacy metadata
   blog.ts                      reads + parses the blog markdown posts
+  seo.ts                       canonical URLs + Open Graph/Twitter metadata helper
+  og.tsx                       renders the branded share images
 public/brand/                  logo + icon source files
 ```
 
@@ -58,20 +61,33 @@ flags (`collectsPersonalData`, `showsAds`, `usesAnalytics`, etc.), list `dataPoi
 
 ## Adding a blog post
 
-Drop a new markdown file in **`app/blog/`** with this frontmatter, and the blog index, the
-post page, and the sitemap pick it up automatically (newest `date` first):
+Drop a new markdown file in **`app/blog/`** with this frontmatter. The blog index, the post
+page, the sitemap, structured data, and the share image are all generated from it
+(newest `date` first):
 
 ```md
 ---
 title: "Post title"
-description: "One or two sentences shown on the index and in search results."
+description: "One or two sentences — keep it under 160 characters."
 date: "2026-10-11"
 slug: "url-slug"
 ---
 ```
 
-Files without a `slug` (such as `index.md`) are ignored. GitHub-flavored markdown (tables,
-blockquotes, lists) is supported.
+- **`slug`** should match an app's slug in `lib/apps.ts` to show that app's icon on the card,
+  an app card + Play Store button at the end of the post, and `about` in the structured data.
+- **`description`** is used as the meta description, the Open Graph description, and the card
+  text. Search engines truncate past ~160 characters.
+- Files without a `slug` are ignored. GitHub-flavored markdown (tables, blockquotes, lists)
+  is supported; a `#` heading in the body renders as an `<h2>` because the page title is the `<h1>`.
+
+### SEO
+
+Each post and the blog index ship with a canonical URL, Open Graph + Twitter tags, a generated
+`og.png` share image, and JSON-LD (`BlogPosting` / `Blog` + `BreadcrumbList`). All URLs use a
+trailing slash to match `trailingSlash: true` in `next.config.mjs` — build them with
+`absoluteUrl()` from `lib/seo.ts`, as the sitemap does. Use `pageMetadata()` for the same
+treatment on other pages.
 
 ## App icons & screenshots
 
