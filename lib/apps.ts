@@ -825,7 +825,7 @@ export const apps: App[] = [
     category: "Navigation",
     status: "coming-soon",
     platforms: ["Android"],
-    accent: { from: "#2A63C4", to: "#1F4EA6", ink: "#0A1B3D" },
+    accent: { from: "#EF4D5B", to: "#D92D3B", ink: "#3A0710" },
     glyph: "compass",
     iconSrc: "/apps/singapore-bus-mrt-live/icon.png",
     version: "0.1.0",
