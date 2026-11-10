@@ -848,13 +848,13 @@ export const apps: App[] = [
       { kind: "stat", title: "Crowd" },
     ],
     privacy: {
-      lastUpdated: "2026-11-09",
+      lastUpdated: "2026-11-10",
       summary:
-        "There is no account and no sign-up, and no server of ours: the app asks LTA DataMall and data.gov.sg for live data straight from your phone, and loads map tiles from OpenFreeMap. Those requests carry no account and nothing about you beyond your IP address, with one exception: when the Bicycle parking layer is switched on, the centre of the map area you are looking at, rounded to about 110 metres, is sent to LTA to find parking nearby. If you allow it, the app reads your phone's location (only while the app is open, and only when you ask) to show what is near you; it stays on your phone and is never sent to us, stored or shared. Your saved places and settings are kept on your phone only. The app is free and ad-supported, using Google AdMob. There is no analytics and no crash reporting in this version.",
+        "There is no account and no sign-up, and no server of ours: the app asks LTA DataMall and data.gov.sg for live data straight from your phone, and loads map tiles from OpenFreeMap. Those requests carry no account and nothing about you beyond your IP address, with one exception: when the Bicycle parking layer is switched on, the centre of the map area you are looking at, rounded to about 110 metres, is sent to LTA to find parking nearby. If you allow it, the app reads your phone's location (only while the app is open, and only when you ask) to show what is near you; it stays on your phone and is never sent to us, stored or shared. Your saved places and settings are kept on your phone only. The app is free and ad-supported, using Google AdMob. The app also uses Google Firebase to count which screens are opened, to find crashes and to measure speed, using a random ID for this installation and never a place, a search or your location (details below).",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
-      usesAnalytics: false,
+      usesAnalytics: true,
       sharesWithThirdParties: true,
       childDirected: false,
       dataPoints: [
@@ -865,12 +865,18 @@ export const apps: App[] = [
         { type: "Saved places and settings (on device)", purpose: "The stations and bus stops you save, your language and theme, and which live layers you switched on are kept on your phone only. Settings, then Delete local data, removes them, and so does uninstalling the app." },
         { type: "Train disruption alerts (optional)", purpose: "If you switch them on, the app asks for notification permission, checks LTA's service status in the background about every 15 minutes and shows a notification on your phone. The check carries your IP address and nothing else about you. It is not a guarantee: check LTA for live status." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID, IP address and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us. Where the law requires it (for example the EEA, the UK and Switzerland), the app first asks for your consent in a form from Google. The app never gives the ads software your exact location." },
+        { type: "Usage statistics, crash reports and speed (Google Firebase)", purpose: "Firebase Analytics counts which screens are opened and which live layers are switched on or off, as counts and fixed labels. It never records a place, a station, a bus stop, a search or your location. Firebase Crashlytics sends a report when the app crashes (what went wrong inside the app, plus the phone model, Android version and free memory). Firebase Performance Monitoring measures how quickly the app starts, draws screens and loads data. To do this Firebase collects a random ID for this installation, basic phone and app information (model, Android version, language, app version) and your IP address, from which Google can work out an approximate location. None of it is linked to a name, because there is no account. Firebase Cloud Messaging and In-App Messaging use the same installation ID so the developer can show a notice; the app sends none at present. There is no setting in this version to switch these off." },
       ],
       thirdParties: [
         {
           name: "Google AdMob",
           purpose: "Shows the ads that keep the app free, and applies frequency limits so the same ad is not repeated.",
           policyUrl: "https://policies.google.com/privacy",
+        },
+        {
+          name: "Google Firebase (Analytics, Crashlytics, Performance Monitoring, Cloud Messaging, In-App Messaging)",
+          purpose: "Counts which screens are used, reports crashes and measures speed, from a random per-installation ID and basic phone and app information. It never receives a place or your location from the app.",
+          policyUrl: "https://firebase.google.com/support/privacy",
         },
         {
           name: "LTA DataMall (Land Transport Authority, Singapore)",
