@@ -24,6 +24,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
+    keywords: post.keywords,
     image: { url: `${site.url}/blog/${post.slug}/og.png`, alt: post.title },
     openGraph: {
       type: "article",
@@ -38,7 +39,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPost(params.slug);
   if (!post) notFound();
 
-  const app = getApp(post.slug);
+  const app = getApp(post.app ?? post.slug);
   const morePosts = getMorePosts(post.slug);
   const url = absoluteUrl(`/blog/${post.slug}`);
   const publisher = {
@@ -56,6 +57,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     datePublished: post.date,
     dateModified: post.date,
     inLanguage: "en",
+    ...(post.keywords.length > 0 && { keywords: post.keywords.join(", ") }),
     url,
     image: `${site.url}/blog/${post.slug}/og.png`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },

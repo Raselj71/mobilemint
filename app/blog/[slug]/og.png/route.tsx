@@ -15,6 +15,6 @@ export function GET(_request: Request, { params }: { params: { slug: string } })
   return renderOgImage({
     eyebrow: "The blog",
     title: post?.title ?? "MobileMint Blog",
-    iconSrc: getApp(params.slug)?.iconSrc,
+    iconSrc: getApp(post?.app ?? params.slug)?.iconSrc,
   });
 }
