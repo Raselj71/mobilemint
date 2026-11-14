@@ -5,7 +5,7 @@ import { getApp } from "@/lib/apps";
 import { formatPostDate, type BlogPost } from "@/lib/blog";
 
 export default function BlogCard({ post }: { post: BlogPost }) {
-  const app = getApp(post.slug);
+  const app = getApp(post.app ?? post.slug);
 
   return (
     <Link

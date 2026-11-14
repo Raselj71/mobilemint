@@ -10,6 +10,10 @@ export type BlogPost = {
   description: string;
   date: string;
   content: string;
+  /** The app this post is about, when its slug is not the app's own (shows that app's card and Play button). */
+  app?: string;
+  /** Search keywords for the page's meta tags and structured data. */
+  keywords: string[];
 };
 
 function readPost(file: string): BlogPost | null {
@@ -23,6 +27,8 @@ function readPost(file: string): BlogPost | null {
     // YAML parses an unquoted `date: 2026-07-19` into a Date object.
     date: data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date ?? ""),
     content,
+    app: data.app ? String(data.app) : undefined,
+    keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
   };
 }
 

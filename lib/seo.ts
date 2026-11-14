@@ -21,6 +21,7 @@ type PageMetadataInput = {
   /** Absolute URL of a 1200x630 share image (see lib/og.tsx). */
   image?: { url: string; alt: string };
   openGraph?: NonNullable<Metadata["openGraph"]>;
+  keywords?: string[];
 };
 
 /**
@@ -28,12 +29,13 @@ type PageMetadataInput = {
  * Page-level `openGraph` replaces the layout's wholesale, so the shared fields
  * (site name, locale, URL) are restated here.
  */
-export function pageMetadata({ title, description, path, image, openGraph }: PageMetadataInput): Metadata {
+export function pageMetadata({ title, description, path, image, openGraph, keywords }: PageMetadataInput): Metadata {
   const url = absoluteUrl(path);
   const images = image ? [{ url: image.url, width: ogSize.width, height: ogSize.height, alt: image.alt }] : undefined;
   return {
     title,
     description,
+    ...(keywords && keywords.length > 0 && { keywords }),
     alternates: { canonical: url },
     openGraph: {
       type: "website",
