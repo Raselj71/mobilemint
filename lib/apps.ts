@@ -631,14 +631,14 @@ export const apps: App[] = [
       "/apps/sg-card-balance/screens/06-settings.png",
     ],
     storeUrl: "https://play.google.com/store/apps/details?id=com.mobilemint.sgcardbalance",
-    version: "1.1.0",
-    updated: "2026-10-10",
+    version: "1.6.0",
+    updated: "2026-11-14",
     short:
       "Check your Singapore transit card balance and trip history in a tap — bus rides combined, spending tracked, in 4 languages.",
     description: [
       "Hold your EZ-Link or NETS FlashPay card to the back of your phone and see what's left on it at once, in Singapore dollars and in your home currency. The app shows when the card expires and lists every trip: MRT journeys with their stations, bus rides with the fare you actually paid, and top-ups.",
       "Your card only remembers its last 30 records; the app keeps every one it has seen, so your history keeps growing. See what you spend each week and month, your most-used routes, and roughly how long your balance will last. Get a reminder before the card expires, and export your history as a CSV file for expense claims. The app is free with ads; a one-time purchase removes them for life. English, 简体中文, বাংলা and Bahasa Melayu. Reading your card needs no internet, and the app can never change it. Unofficial — not affiliated with EZ-Link, SimplyGo, NETS or LTA.",
-      "A street map of the MRT and LRT network shows each station's exits, how crowded it is right now, its first and last train and how often trains come, and plans a trip between two stations with the scheduled time on the train. A bus view lists every bus stop with live arrival times for each service. The map and the live information need an internet connection; train times, exits and bus stops are from the Land Transport Authority.",
+      "A street map of the MRT and LRT network shows each station's exits, how crowded it is right now, its first and last train and how often trains come, and plans a trip between two stations with the scheduled time on the train. A bus view lists every bus stop with live arrival times for each service. A Live view adds layers you switch on one by one, from LTA DataMall and data.gov.sg: taxis and taxi stands, traffic incidents and cameras, road signs, flood alerts, carparks with free lots, EV charging points, bicycle parking, and the weather (the 2-hour forecast, rainfall and temperature). The map and the live information need an internet connection; train times, exits and bus stops are from the Land Transport Authority.",
     ],
     features: [
       { icon: "scan", title: "Instant balance", body: "Tap an EZ-Link or NETS FlashPay card and see the balance in Singapore dollars and your own currency." },
@@ -651,9 +651,9 @@ export const apps: App[] = [
       { kind: "list", title: "Trips" },
     ],
     privacy: {
-      lastUpdated: "2026-10-11",
+      lastUpdated: "2026-11-14",
       summary:
-        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day. The street map loads map tiles from OpenFreeMap, and when you open a station or a bus stop it asks the Land Transport Authority for live crowd levels, bus arrival times, train service alerts and lift outages; these requests contain no card data and no account. When the map opens, and when you tap the Near me button, the app reads your phone's location (only while the app is open, and only if you allow it) to show where you are and the closest stations and bus stops; your location stays on your phone and is never sent to us, stored or shared. The stations and bus stops you save are kept on your phone only. If you switch on train disruption alerts in Settings, the app checks the Land Transport Authority in the background about every 15 minutes and sends you a notification on your phone. The app is free and ad-supported, and uses Google Firebase to report anonymous usage and crash information, and to be able to send you messages from us.",
+        "Your card is read on your device, and your balance and history are stored only on your phone — that data is never uploaded. There is no account. The app fetches currency exchange rates once a day. The street map loads map tiles from OpenFreeMap, and when you open a station or a bus stop it asks the Land Transport Authority for live crowd levels, bus arrival times, train service alerts and lift outages; these requests contain no card data and no account. The map's Live view, if you switch its layers on, asks LTA DataMall for taxis, traffic, carparks, EV charging and bicycle parking and asks data.gov.sg for the weather; those requests carry nothing about you beyond your IP address, except that the Bicycle parking layer sends the centre of the map area in view, rounded to about 110 metres. When the map opens, and when you tap the Near me button, the app reads your phone's location (only while the app is open, and only if you allow it) to show where you are and the closest stations and bus stops; your location stays on your phone and is never sent to us, stored or shared. The stations and bus stops you save are kept on your phone only. If you switch on train disruption alerts in Settings, the app checks the Land Transport Authority in the background about every 15 minutes and sends you a notification on your phone. The app is free and ad-supported, and uses Google Firebase to report anonymous usage and crash information, and to be able to send you messages from us.",
       collectsPersonalData: false,
       accountRequired: false,
       showsAds: true,
@@ -673,6 +673,8 @@ export const apps: App[] = [
         { type: "Train disruption alerts (optional)", purpose: "If you switch it on in Settings, the app asks for notification permission and, about every 15 minutes (sometimes later to save battery), asks the Land Transport Authority whether a train line is disrupted, then sends a notification on your phone if so. The request carries only your IP address, like any web request; nothing about you or your card is sent, and nothing is sent to us. You can switch it off at any time." },
         { type: "Messages from us (Firebase)", purpose: "The app includes Firebase Cloud Messaging and Firebase In-App Messaging, so we can show you an occasional message about the app. Firebase gives your installation of the app an identifier and uses it to deliver them, and receives the device model, OS version and app version. No card data, location or saved places are sent. Notifications from us need your notification permission, which you can refuse or withdraw in Android settings." },
         { type: "Live station and bus information", purpose: "When you open a station card, a bus stop card, the bus view or the saved places list, the app asks the Land Transport Authority's DataMall for that line's crowd levels and lift outages, or that bus stop's arrival times, and the Metro view asks whether a train line is disrupted. The request names only the line or the bus stop and carries your IP address; nothing about you or your card is sent. It is asked for once and refreshed while the card stays open." },
+        { type: "Live map layers (optional)", purpose: "In the map's Live view you switch layers on one at a time: taxis, taxi stands, traffic incidents and cameras, road signs, flood alerts, carparks, EV charging, bicycle parking and the weather. The app asks LTA DataMall and data.gov.sg for them directly, with no server of ours in between, and only while a layer is switched on and the Live view is on screen. Each request carries your IP address, as any web request does, and nothing about you or your card. Which layers you switched on is remembered on your phone and cleared by Delete local data." },
+        { type: "Bicycle parking layer (optional)", purpose: "When you switch on the Bicycle parking layer, the app sends the centre of the map area you are looking at to LTA, rounded to about 110 metres, to find racks nearby. That position is not stored by the app and is not sent to us." },
         { type: "Advertising identifier", purpose: "Your device's advertising ID and coarse device information are used by Google AdMob to show ads and to limit how often you see the same one. This is handled by Google, not by us — we never receive it." },
         { type: "Usage events", purpose: "Anonymous counts of what happens in the app — that a scan succeeded, that a scan failed and why, that a card was renamed, that history was exported, that the language or currency was changed, which screens such as the map or a guide topic were opened. Never your balance, your card number, your records or a nickname: no card data is included in any event." },
         { type: "Crash and performance diagnostics", purpose: "If the app crashes or runs slowly, the device model, OS version, app version and a stack trace are sent so the fault can be found and fixed." },
@@ -705,8 +707,13 @@ export const apps: App[] = [
         },
         {
           name: "Land Transport Authority (LTA DataMall)",
-          purpose: "Supplies the live station crowd levels, bus arrival times, train service alerts and lift outages shown in the app. Only the line or the bus stop being viewed is sent, with your IP address; no card, location or personal data.",
+          purpose: "Supplies the live station crowd levels, bus arrival times, train service alerts and lift outages, and the Live view's taxis, traffic, carparks, EV charging and bicycle parking. Only the line or the bus stop being viewed is sent, with your IP address, plus, for the Bicycle parking layer, the centre of the map area in view rounded to about 110 metres; no card or personal data.",
           policyUrl: "https://www.lta.gov.sg/content/ltagov/en/privacy-statement.html",
+        },
+        {
+          name: "data.gov.sg (Government of Singapore open data)",
+          purpose: "Supplies the weather shown in the map's Live view: the 2-hour forecast, rainfall and temperature. The request carries your IP address and nothing else about you.",
+          policyUrl: "https://data.gov.sg",
         },
       ],
       dataDeletion: {
@@ -715,7 +722,7 @@ export const apps: App[] = [
         steps: [
           "Open the app and go to the Settings tab.",
           "Under Data, tap \"Delete local data\".",
-          "Confirm. Every saved card, its nickname, its stored history, any saved stations and bus stops, any scheduled expiry reminders and the cached exchange rates are removed from the phone straight away. A purchase is tied to your Google account, not to this data, and can be restored at any time.",
+          "Confirm. Every saved card, its nickname, its stored history, any saved stations and bus stops, any scheduled expiry reminders, which Live layers were switched on, and the cached exchange rates are removed from the phone straight away. A purchase is tied to your Google account, not to this data, and can be restored at any time.",
           "To remove everything at once instead, uninstall the app — all of its local data goes with it.",
         ],
       },
